@@ -1,6 +1,6 @@
 # myEd Developer Coding Challenge
 
-This is a coding challenge for potential recruits to myEd.  It should take about 2 hours, though feel free to spend more or less time as you see fit.
+This is coding challenge for potential recruits to myEd.  It should take about 2 hours, though feel free to spend more or less time as you see fit.
 
 ## Background
 
