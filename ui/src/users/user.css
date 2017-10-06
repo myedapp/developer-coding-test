@@ -1,0 +1,24 @@
+.Users-ul 
+{
+    background: #EFF2F5;
+}
+
+li { 
+    list-style : none;
+    border : 3px solid #EFF2F5;   
+    background : #EFF2F5;
+    margin : 10px; 
+    border-radius: 2px;
+    overflow: hidden;
+    color: #222;   
+}
+
+.name {     
+    color: #222;   
+    padding: 20px;      
+    text-align: center;   
+    display: inline-block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 2em;    
+}
