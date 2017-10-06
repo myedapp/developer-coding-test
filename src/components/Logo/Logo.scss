@@ -1,0 +1,15 @@
+@import 'src/variables';
+@import '~sass-rem/rem';
+
+.Logo {
+  font-size: rem(24px);
+  color: $snowWhite;
+
+  .Logo__light {
+    font-weight: 300;
+  }
+  
+  .Logo__heavy {
+    font-weight: 700;
+  }
+}

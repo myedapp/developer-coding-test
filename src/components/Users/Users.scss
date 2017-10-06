@@ -1,0 +1,149 @@
+@import 'src/variables';
+@import '~sass-rem/rem';
+
+.Users {
+  .Users__header {
+    margin: 0 0 48px 0;
+    padding: 30px 32px;
+    box-shadow: 0 2px 5px 1px rgba(0,0,0,0.1);
+    background: linear-gradient(155deg, $blue1, $blue2);
+  }
+
+  .Users__header-content {
+    max-width: $pageWidth;
+    margin: 0 auto;
+    font-size: rem(24px);
+    font-weight: normal;
+    color: $snowWhite;
+    letter-spacing: 2px;
+  }
+  
+  .Users__container {
+    position: relative;
+    max-width: $pageWidth;
+    margin: 0 auto 0 auto;
+  }
+  
+  .Users__user {
+    position: relative;
+    margin: 0 12px 66px 12px;
+    border-radius: 6px;
+    box-shadow: 0 5px 20px 1px rgba(0,0,0,0.2);
+    background: #fff;
+  }
+  
+  .Users__avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -33%);
+  }
+
+  .Users__user-header {
+    padding: 78px 0 0 0;
+    margin: 0;
+    background: linear-gradient(155deg, $blue1, $blue2);
+    border-radius: 6px 6px 0 0;
+  }
+  
+  .Users__user-name {
+    text-align: center;
+    font-size: rem(16px);
+    font-weight: normal;
+    color: $snowWhite;
+    letter-spacing: 2px;
+  }
+
+  .Users__nav {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    padding: 0 24px;
+  }
+  
+  .Users__nav-item {
+    color: $snowWhite;
+    padding: 0 12px 6px 12px;
+    border-bottom: 4px solid transparent;
+    transition: 300ms all;
+    cursor: pointer;
+  }
+  
+  .Users__nav-item:hover,
+  .Users__nav-item--active {
+    border-bottom: 4px solid #fff;
+  }
+
+  .Users__nav-item--disabled {
+    cursor: not-allowed;
+  }
+
+  .Users__quests {
+    padding: 24px;
+  }
+
+  .Users__quest {
+    padding: 6px 12px;
+    margin: 0 0 18px 0;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+  }
+
+  .Users__quest:last-of-type {
+    border-bottom: none;
+  }
+
+  .Users__left-col {
+    flex-grow: 1;
+    padding-right: 64px;
+  }
+
+  .Users__right-col {
+    flex-grow: 0;
+    width: 25%;
+    flex-basis: 25%;
+    text-align: center;
+  }
+
+  .Users__quest-title {
+    margin: 0;
+    color: $grey700;
+    font-size: rem(18px);
+  }
+
+  .Users__quest-submitted {
+    margin: 0 6px 6px 0;
+    display: inline-block;
+  }
+
+  .Users__quest-completion {
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: $pageNarrowWidth) {
+    .Users__quest {
+      flex-direction: column;
+    }
+
+    .Users__left-col {
+      flex-basis: 100%;
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: 24px;
+    }
+  
+    .Users__right-col {
+      flex-basis: 100%;
+      width: 100%;
+      padding-bottom: 24px;
+    }
+
+    .Users__quest-submitted {
+      margin: 12px 0 12px 0;
+    }
+  }
+}

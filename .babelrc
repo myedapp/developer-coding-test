@@ -1,0 +1,25 @@
+{
+  "env": {
+    "webpack": {
+      "presets": [
+        ["es2015", {"modules": false}],
+        "stage-0",
+        "react"
+      ]
+    },
+    "node": {
+      "presets": [
+        "es2015",
+        "stage-0",
+        "react"
+      ]
+    },
+    "test": {
+      "presets": [
+        "es2015",
+        "stage-0",
+        "react"
+      ]
+    }
+  }
+}

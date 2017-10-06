@@ -1,0 +1,20 @@
+@import 'src/variables';
+@import '~sass-rem/rem';
+
+.Tag {
+  padding: 3px 12px;
+  border-radius: 6px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1em;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+  border: 1px solid $grey500;
+  color: $grey600;
+
+  &.Tag--active {
+    border: 1px solid $green300;
+    color: $green500;
+  }
+}
