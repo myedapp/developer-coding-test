@@ -1,0 +1,41 @@
+@import 'src/variables';
+@import '~sass-rem/rem';
+
+.Spindle {
+  width: 90px;
+  margin: 0 auto;
+
+  .Spindle__label {
+    text-align: center;
+    color: $grey600;
+    font-size: rem(14px);
+    display: block;
+  }
+
+  .CircularProgressbar {
+    /*
+    * This fixes an issue where the CircularProgressbar svg has
+    * 0 width inside a "display: flex" container, and thus not visible.
+    *
+    * If you're not using "display: flex", you can remove this style.
+    */
+    width: 100%;
+  }
+
+  .CircularProgressbar .CircularProgressbar-path {
+    stroke: $green500;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease 0s;
+  }
+
+  .CircularProgressbar .CircularProgressbar-trail {
+    stroke: $green100;
+  }
+
+  .CircularProgressbar .CircularProgressbar-text {
+    fill: $green300;
+    font-size: 20px;
+    dominant-baseline: middle;
+    text-anchor: middle;
+  }
+}

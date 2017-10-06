@@ -1,0 +1,49 @@
+@import 'src/variables';
+@import '~sass-rem/rem';
+
+.Progress {
+  position: relative;
+  display: block;
+  padding-top: 12px;
+  
+  .Progress__track-wrapper {
+    padding: 30px 0 0 0;
+    position: relative;
+    display: block;
+    margin: 0;
+  }
+
+  .Progress__label {
+    color: $grey600;
+    font-size: rem(14px);
+    display: block;
+  }
+
+  .Progress__pin {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    width: 32px;
+    height: 32px;
+    fill: $blue2;
+  }
+
+  .Progress__marker-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -2px;
+  }
+  
+  .Progress__track-bar {
+    border-bottom: 2px dotted $blue2;
+    width: 100%;
+    display: block;
+  }
+
+  .Progress__marker {
+    background: $blue2;
+    width: 2px;
+    height: 6px;
+    opacity: 0.9;
+  }
+}
