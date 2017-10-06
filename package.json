@@ -1,0 +1,22 @@
+{
+  "name": "developer-coding-test",
+  "version": "1.0.0",
+  "description": "myEd coding challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takhi/developer-coding-test.git"
+  },
+  "author": "Minh Huynh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/takhi/developer-coding-test/issues"
+  },
+  "homepage": "https://github.com/takhi/developer-coding-test#readme",
+  "dependencies": {
+    "json-server": "^0.12.0"
+  }
+}
