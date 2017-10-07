@@ -1,10 +1,52 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Http} from "@angular/http";
+import 'rxjs/add/operator/toPromise';
+import {User} from "./@models/user";
+import {QuestPath} from "./@models/quest-path";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
+  public users = [];
+  public usersById = [];
+  public questPathways = [];
+
+  constructor(private http: Http) {}
+
+  ngOnInit() {
+    // Get users
+    this.getApiData('users').then(response => {
+      response.map(userData => {
+        const newUser = new User(userData);
+        // Add user to user list
+        this.users.push(newUser);
+        // Add user to user by id list
+        this.usersById[newUser.id] = newUser;
+      });
+    });
+
+    // Get quest pathways
+    this.getApiData('quest_pathways').then(response => {
+      response.map(questData => {
+        this.questPathways.push(new QuestPath(questData));
+      })
+    })
+  }
+
+  /**
+   * Request data from api
+   * @param {string} apiModule
+   * @returns {Promise<any>}
+   */
+  getApiData(apiModule: string) {
+    return this.http.get(`/assets/api/${apiModule}.json`)
+      .toPromise()
+      .then(response => response.json())
+      .catch(error => {
+        console.log(error.getMessages());
+      });
+  }
 }
