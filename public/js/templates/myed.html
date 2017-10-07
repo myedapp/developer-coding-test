@@ -11,7 +11,7 @@
                 <li class="list-group-item list-group-item-secondary" ng-repeat="quest in user.quest_paths">
                     <!-- <p>{{quest.order}}</p> -->
                     <h5>{{quest.quest.name}}</h5>
-                    <p ng-if="quest.quest.is_active === false" class="small text-danger">quest is inactive</p>
+                    <p ng-if="quest.quest.is_active === false" class="small text-danger">Quest is inactive</p>
                     <p class="small">{{myEdCtrl.getUserName(user.user_id)}} has 
                         <span ng-class="quest.mark.submitted ? 'text-success' : 'text-secondary'">{{quest.mark.submitted ? 'submitted' : 'not submitted'}}</span>
                         <i class="fa fa-check text-success" aria-hidden="true" ng-if="quest.mark.submitted"></i>
@@ -25,6 +25,9 @@
                     </p>
                     <p ng-if="quest.mark.mark"><span class="small"> {{myEdCtrl.getUserName(user.user_id)}} has received </span> 
                         <strong class="text-success">{{quest.mark.mark}}</strong> <span class="small"> for this quest</span>
+                    </p>
+                    <p ng-if="quest.mark.submitted && !quest.mark.mark">
+                        <span class="small text-secondary">Quest is yet to be marked</span>
                     </p>
                 </li>
             </ul>
