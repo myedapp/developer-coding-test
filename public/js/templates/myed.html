@@ -1,6 +1,7 @@
 <div id="my-ed">
     <div class="card bg-dark text-white" ng-repeat="user in myEdCtrl.quest_paths">
         <div ng-click="expand=!expand" ng-init="expand=false" class="card-header pointer">
+                <i class="fa fa-lg fa-user" aria-hidden="true"></i>
             {{myEdCtrl.getUserName(user.user_id)}}
             <span class="small badge badge-success">{{user.quest_paths.length}}</span>
             <i ng-class="{rotate: !expand}" class="fa fa-chevron-up rotatable float-right"></i>
@@ -12,7 +13,8 @@
                     <h5>{{quest.quest.name}}</h5>
                     <p ng-if="quest.quest.is_active === false" class="small text-danger">quest is inactive</p>
                     <p class="small">{{myEdCtrl.getUserName(user.user_id)}} has 
-                        <span ng-class="quest.mark.submitted ? 'text-success' : 'text-secondary'">{{quest.mark.submitted ? 'submitted' : 'not submitted'}}</span> 
+                        <span ng-class="quest.mark.submitted ? 'text-success' : 'text-secondary'">{{quest.mark.submitted ? 'submitted' : 'not submitted'}}</span>
+                        <i class="fa fa-check text-success" aria-hidden="true" ng-if="quest.mark.submitted"></i>
                         this quest
                     </p>
                     <p>

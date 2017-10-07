@@ -1,3 +1,13 @@
 .pointer {
     cursor: pointer;
 }
+.rotatable {
+    transition: transform ease-in-out .5s;
+}
+
+.rotate {
+    transform: rotate(180deg)
+}
+.float-right {
+    float: right;
+}
