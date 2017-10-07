@@ -1,0 +1,31 @@
+<div id="my-ed">
+    <div class="card bg-dark text-white" ng-repeat="user in myEdCtrl.quest_paths">
+        <div ng-click="expand=!expand" ng-init="expand=false" class="card-header pointer">
+            {{myEdCtrl.getUserName(user.user_id)}}
+            <span class="small badge badge-success">{{user.quest_paths.length}}</span>
+            <i ng-class="{rotate: !expand}" class="fa fa-chevron-up rotatable float-right"></i>
+        </div>
+        <div ng-show="expand" class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-secondary" ng-repeat="quest in user.quest_paths">
+                    <!-- <p>{{quest.order}}</p> -->
+                    <h5>{{quest.quest.name}}</h5>
+                    <p ng-if="quest.quest.is_active === false" class="small text-danger">quest is inactive</p>
+                    <p class="small">{{myEdCtrl.getUserName(user.user_id)}} has 
+                        <span ng-class="quest.mark.submitted ? 'text-success' : 'text-secondary'">{{quest.mark.submitted ? 'submitted' : 'not submitted'}}</span> 
+                        this quest
+                    </p>
+                    <p>
+                        <div class="progress" style="width: 200px">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: {{quest.mark.completion}}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">{{quest.mark.completion}}%</div>
+                        </div>
+                        <span class="small">has been completed</span>
+                    </p>
+                    <p ng-if="quest.mark.mark"><span class="small"> {{myEdCtrl.getUserName(user.user_id)}} has received </span> 
+                        <strong class="text-success">{{quest.mark.mark}}</strong> <span class="small"> for this quest</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
