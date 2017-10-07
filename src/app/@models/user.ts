@@ -4,12 +4,12 @@
  */
 export class User {
   id: number;
-  name: string;
+  fullname: string;
 
   constructor(data: any) {
     if (data) {
       this.id = data.id;
-      this.name = data.name;
+      this.fullname = data.fullname;
     }
   }
 }

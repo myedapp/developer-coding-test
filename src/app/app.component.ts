@@ -3,6 +3,7 @@ import {Http} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 import {User} from "./@models/user";
 import {QuestPath} from "./@models/quest-path";
+import {QuestPathway} from "./@models/quest-pathway";
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,9 @@ import {QuestPath} from "./@models/quest-path";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public users = [];
-  public usersById = [];
-  public questPathways = [];
+  public users: User[] = [];
+  public usersById: User[] = [];
+  public questPathways: QuestPathway[] = [];
 
   constructor(private http: Http) {}
 
@@ -30,10 +31,25 @@ export class AppComponent implements OnInit {
 
     // Get quest pathways
     this.getApiData('quest_pathways').then(response => {
-      response.map(questData => {
-        this.questPathways.push(new QuestPath(questData));
+      response.map(questPathwayData => {
+        let questPathway: QuestPathway = new QuestPathway();
+        questPathway.userId = questPathwayData.user_id;
+        questPathway.questPaths = [];
+        questPathwayData.quest_paths.map(questPathData => {
+          questPathway.questPaths.push(new QuestPath(questPathData));
+        });
+        this.questPathways.push(questPathway);
       })
     })
+  }
+
+  /**
+   * Return a user object by id
+   * @param {number} id
+   * @returns {User}
+   */
+  public getUserById(id: number) {
+    return this.usersById[id];
   }
 
   /**
@@ -41,7 +57,7 @@ export class AppComponent implements OnInit {
    * @param {string} apiModule
    * @returns {Promise<any>}
    */
-  getApiData(apiModule: string) {
+  public getApiData(apiModule: string) {
     return this.http.get(`/assets/api/${apiModule}.json`)
       .toPromise()
       .then(response => response.json())
