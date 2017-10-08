@@ -1,0 +1,43 @@
+$line-color--even: #f9f9f9;
+$line-color--odd: #f1f1f1;
+$quest-path-user-name--background: #516699;
+
+/**
+ * Quest Pathway Styles
+ */
+.quest-pathways {
+  margin-top: 2rem;
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  &__quest-path-header {
+    font-weight:bold;
+    margin-top: 1rem;
+  }
+
+  &__quest-path {
+    padding: 5px 0;
+    background: $line-color--even;
+
+    &:nth-child(odd) {
+      background: $line-color--odd;
+    }
+    &--inactive {
+      opacity: .3;
+    }
+
+    label {
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  &__quest-path-user-name {
+    background: $quest-path-user-name--background;
+    padding: .5rem 1rem;
+    color: #fff;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,55 @@
+<ng-template [ngIf]="questPathways && users">
+  <div class="container quest-pathways">
+    <div class="row">
+      <div class="col-md-8">
+        <!-- Page Title -->
+        <h1 class="mb-4">Quest Pathways</h1>
+      </div>
+      <div class="col-md-4">
+        <!-- Filters -->
+        <div class="quest-pathways__filters mb-4 mt-2">
+          <!-- User Filter -->
+          <select class="form-control" (change)="updateUserFilter($event.target.value)">
+            <option value="">Filter by User</option>
+            <option *ngFor="let user of users" value="{{user.id}}">{{user.fullname}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <ng-template ngFor let-questPathway [ngForOf]="questPathways">
+      <div class="mb-4" *ngIf="!showingUserId || showingUserId == questPathway.userId">
+        <!-- User Fullname -->
+        <h3 class="row quest-pathways__quest-path-user-name">{{getUserById(questPathway.userId).fullname}}</h3>
+        <!-- Quest Paths Data -->
+        <div class="row quest-pathways__quest-path-header hidden-sm-down">
+          <div class="col-md-6">Quest</div>
+          <div class="col-md-2">Submitted</div>
+          <div class="col-md-2">Completion</div>
+          <div class="col-md-2">Mark</div>
+        </div>
+        <div *ngFor="let questPath of questPathway.questPaths"
+             class="row quest-pathways__quest-path"
+             [ngClass]="{'quest-pathways__quest-path--inactive': questPath.quest.is_active === false}"
+        >
+          <div class="col-md-6">
+            {{questPath.quest.name}}
+          </div>
+          <div class="col-md-2">
+            <label class="hidden-md-up">Submitted: </label>
+            <ng-template [ngIf]="questPath.mark.submitted">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </ng-template>
+          </div>
+          <div class="col-md-2">
+            <label class="hidden-md-up">Completion: </label>
+            {{questPath.mark.completion !== 0 ? questPath.mark.completion + '%' : '-'}}
+          </div>
+          <div class="col-md-2">
+            <label class="hidden-md-up">Mark: </label>
+            {{questPath.mark.mark || '-'}}
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</ng-template>
