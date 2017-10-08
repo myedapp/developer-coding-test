@@ -1,5 +1,6 @@
 $line-color--even: #f9f9f9;
 $line-color--odd: #f1f1f1;
+$quest-path-user-name--background: #516699;
 
 /**
  * Quest Pathway Styles
@@ -31,5 +32,12 @@ $line-color--odd: #f1f1f1;
       font-weight: bold;
       margin: 0;
     }
+  }
+
+  &__quest-path-user-name {
+    background: $quest-path-user-name--background;
+    padding: .5rem 1rem;
+    color: #fff;
+    font-size: 1rem;
   }
 }

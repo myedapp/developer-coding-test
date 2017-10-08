@@ -19,7 +19,7 @@
     <ng-template ngFor let-questPathway [ngForOf]="questPathways">
       <div class="mb-4" *ngIf="!showingUserId || showingUserId == questPathway.userId">
         <!-- User Fullname -->
-        <h3>{{getUserById(questPathway.userId).fullname}}</h3>
+        <h3 class="row quest-pathways__quest-path-user-name">{{getUserById(questPathway.userId).fullname}}</h3>
         <!-- Quest Paths Data -->
         <div class="row quest-pathways__quest-path-header hidden-sm-down">
           <div class="col-md-6">Quest</div>
