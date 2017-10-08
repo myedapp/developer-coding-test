@@ -35,17 +35,17 @@
             {{questPath.quest.name}}
           </div>
           <div class="col-md-2">
-            <label>Submitted: </label>
+            <label class="hidden-md-up">Submitted: </label>
             <ng-template [ngIf]="questPath.mark.submitted">
               <i class="fa fa-check" aria-hidden="true"></i>
             </ng-template>
           </div>
           <div class="col-md-2">
-            <label>Completion: </label>
+            <label class="hidden-md-up">Completion: </label>
             {{questPath.mark.completion !== 0 ? questPath.mark.completion + '%' : '-'}}
           </div>
           <div class="col-md-2">
-            <label>Mark: </label>
+            <label class="hidden-md-up">Mark: </label>
             {{questPath.mark.mark || '-'}}
           </div>
         </div>
