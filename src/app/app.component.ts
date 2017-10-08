@@ -4,6 +4,7 @@ import 'rxjs/add/operator/toPromise';
 import {User} from "./@models/user";
 import {QuestPath} from "./@models/quest-path";
 import {QuestPathway} from "./@models/quest-pathway";
+import {isEmpty} from "rxjs/operator/isEmpty";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
   public users: User[] = [];
   public usersById: User[] = [];
   public questPathways: QuestPathway[] = [];
-
+  public showingUserId: number;
   constructor(private http: Http) {}
 
   ngOnInit() {
@@ -64,5 +65,9 @@ export class AppComponent implements OnInit {
       .catch(error => {
         console.log(error.getMessages());
       });
+  }
+
+  public updateUserFilter(userId) {
+    this.showingUserId = !userId ? null: userId;
   }
 }
