@@ -67,6 +67,10 @@ export class AppComponent implements OnInit {
       });
   }
 
+  /**
+   * Update the current showing user id
+   * @param userId
+   */
   public updateUserFilter(userId) {
     this.showingUserId = !userId ? null: userId;
   }
