@@ -4,7 +4,6 @@ import 'rxjs/add/operator/toPromise';
 import {User} from "./@models/user";
 import {QuestPath} from "./@models/quest-path";
 import {QuestPathway} from "./@models/quest-pathway";
-import {isEmpty} from "rxjs/operator/isEmpty";
 
 @Component({
   selector: 'app-root',
