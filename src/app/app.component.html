@@ -5,7 +5,7 @@
       <!-- User Fullname -->
       <h3>{{getUserById(questPathway.userId).fullname}}</h3>
       <!-- Quest Paths Data -->
-      <div class="row quest-pathways__quest-path-header">
+      <div class="row quest-pathways__quest-path-header hidden-sm-down">
         <div class="col-md-6">Quest</div>
         <div class="col-md-2">Submitted</div>
         <div class="col-md-2">Completion</div>
@@ -19,14 +19,17 @@
           {{questPath.quest.name}}
         </div>
         <div class="col-md-2">
+          <label>Submitted: </label>
           <ng-template [ngIf]="questPath.mark.submitted">
             <i class="fa fa-check" aria-hidden="true"></i>
           </ng-template>
         </div>
         <div class="col-md-2">
+          <label>Completion: </label>
           {{questPath.mark.completion !== 0 ? questPath.mark.completion + '%' : '-'}}
         </div>
         <div class="col-md-2">
+          <label>Mark: </label>
           {{questPath.mark.mark || '-'}}
         </div>
       </div>

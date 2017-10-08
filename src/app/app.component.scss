@@ -26,5 +26,10 @@ $line-color--odd: #f1f1f1;
     &--inactive {
       opacity: .3;
     }
+
+    label {
+      font-weight: bold;
+      margin: 0;
+    }
   }
 }
