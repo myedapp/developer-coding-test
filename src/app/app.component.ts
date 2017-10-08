@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
    * @returns {User}
    */
   public getUserById(id: number) {
-    return this.usersById[id];
+    return this.usersById[id] ? this.usersById[id] : null;
   }
 
   /**
