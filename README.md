@@ -15,8 +15,11 @@ Run `composer install`.
 
 Copy ".env.example" to a new file ".env" and edit parameters to suit your environment.
 
+Run `php artisan key:generate`.
+
 Import the MySQL database using `mysql -u <db_username> <database_name> < myed_backup.sql`
-(or feel free to manually add your own data using MySQL or php artisan tinker). 
+(or feel free to manually add your own data using MySQL or php artisan tinker,
+but be sure to first run `php artisan migrate`). 
 
 ## Running
 
