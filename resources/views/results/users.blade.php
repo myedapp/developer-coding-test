@@ -29,7 +29,7 @@
 
     <div class="container" style="margin-top: 20px">
         @foreach($users as $user)
-            <div class="card" style="margin-bottom: 20px" v-show="'{{ $user->name }}' == search_name">
+            <div class="card" style="margin-bottom: 20px" v-show="('{{ $user->name }}' == search_name) || (search_name == '')">
                 <div class="card-header">
                     <h6 style="margin: 0">{{ $user->name }}</h6>
                 </div>
