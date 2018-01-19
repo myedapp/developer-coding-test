@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-weight: 600;
+  background-color: #fbfbfb;
+}
+.wrapper {
+  width: 800px;
+  margin: 10px auto;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+table {
+    table-layout: fixed;
+    width: 100%;
+}
+.fullname {
+  width: 25%;
+}
+.quest {
+  width: 45%;
+}
+.completion {
+  width: 15%;
+}
+.mark {
+  width: 15%;
+}
+.detail {
+  min-height: 21px;
+}
+
+.table-body tr:nth-child(odd) {
+  background:#D8EDEDB3;
+}
+.button-field {
+  padding-top: 10px;
+}
+.btn {
+  width: 120px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 600;
+}
+input {
+  width:95%;
+  min-height: 21px;
+}
+
+@media screen and (max-device-width: 980px) {
+  .wrapper {
+    width: 700px;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+@media screen and (max-device-width: 700px) {
+  .wrapper {
+    width: 600px;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+@media screen and (max-device-width: 415px) {
+  .wrapper {
+    width: 330px;
+    font-size: 13px;
+    padding: 10px;
+  }
+  .fullname {
+    width: 23%;
+  }
+  .quest {
+    width: 40%;
+  }
+  .completion {
+    width: 25%;
+  }
+  .mark {
+    width: 12%;
+  }
+}
