@@ -1,5 +1,6 @@
-To start server:
+To setup dependencies:
 > npm install
+To start server:
 > node app.js
 
 To view output:
