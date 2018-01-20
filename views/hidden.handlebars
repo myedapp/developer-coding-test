@@ -1,0 +1,39 @@
+<div class="table-responsive max_width_720">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col"><a href="/home" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Show submitted</a></th>
+            </tr>
+        </thead>
+        <tbody>
+        {{#if quests}} {{#each quests}}
+            <tr>
+                <td>{{user_id}}</td>
+                <td>{{fullname}}</td>
+                <td class="col-sm-9">
+                    <table class="table table-sm inner_stable">
+                        <thead class ="thead-dark">
+                            <tr>
+                                <th class="text-center">Submitted</th>
+                                <th>Quest Name</th>
+                                <th class="text-center">Completion</th>
+                                <th class="text-center">Mark</th>
+                            </tr>
+                        </thead>
+                        {{#if quest_paths}} {{#each quest_paths}}
+                        <tbody>
+                            <td class="text-center">{{#if mark.submitted}}{{mark.submitted}}{{else}}false{{/if}}</td>
+                            <td>{{#if quest.name}}{{quest.name}}{{else}}-{{/if}}</td>
+                            <td class="text-center">{{#if mark.completion}}{{mark.completion}}{{else}}-{{/if}}</td>
+                            <td class="text-center">{{#if mark.mark}}{{mark.mark}}{{else}}{{#if mark.submitted}}<button type="button" class="btn btn-primary btn-sm">Mark</button>{{/if}}{{/if}}</td>
+                        </tbody>
+                        {{/each}}{{/if}}
+                    </table>
+                </td>
+            </tr>
+        {{/each}}{{/if}}
+        </tbody>
+    </table>
+</div>

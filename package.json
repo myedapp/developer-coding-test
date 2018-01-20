@@ -1,0 +1,28 @@
+{
+  "name": "developer-coding-test",
+  "version": "1.0.0",
+  "description": "myEd coding challenge",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckychris/developer-coding-test.git"
+  },
+  "author": "Chris Kin Yat Chan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ckychris/developer-coding-test/issues"
+  },
+  "homepage": "https://github.com/ckychris/developer-coding-test#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "jest": "^22.1.4",
+    "path": "^0.12.7",
+    "request": "^2.83.0"
+  }
+}
