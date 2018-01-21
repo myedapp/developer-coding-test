@@ -1,0 +1,88 @@
+@import "variables.less";
+@import "common.less";
+
+.loadingSpinner {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-top: -50px;
+    padding-top: 12px;
+    margin-left: -50px;
+    width: 100px;
+    height: 50px;
+    text-align:center;
+
+    background: orange;
+    z-index: 999;
+    border: 2px solid darkorange;
+    border-radius: 20px;
+}
+
+div.progress {
+  height: 17px;
+  margin-bottom: 15px;
+}
+
+.glyphicon.glyphicon-remove-circle {
+  color: red;
+}
+
+.glyphicon.glyphicon-ok-circle {
+  color: green;
+}
+
+p.glyphicon {
+  position: relative;
+  top: 1px;
+  display: block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: inherit;
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-leave {
+  opacity: 1;
+  z-index: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.page {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.page > div {
+
+
+}
+
+.glyphicon-refresh-animate {
+  margin-right: 10px;
+  -animation: spin .7s infinite linear;
+  -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2 {
+  from { -webkit-transform: rotate(0deg);}
+  to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg);}
+  to { transform: scale(1) rotate(360deg);}
+}

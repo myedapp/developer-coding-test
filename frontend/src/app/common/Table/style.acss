@@ -1,0 +1,25 @@
+.container{
+    display: block;
+}
+@media only screen and (max-width:768px){
+  .container{
+    display: none;
+  }
+}
+
+.left {
+    text-align: left
+}
+
+.padding {
+    padding: 8px 8px 8px 8px;
+}
+
+.th {
+    vertical-align: top !important;
+    background: #eeeeee;
+}
+
+.stripe {
+    background-color: #f9f9f9;
+}
