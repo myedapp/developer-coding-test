@@ -53,10 +53,6 @@ class App extends Component {
         questsData.isLoaded = true;
         questsData.quests = result;
         this.setState({ questsData: questsData });
-
-
-        console.log(this.state);
-
       },
       // Handle errors
       (error) => {

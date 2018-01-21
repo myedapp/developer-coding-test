@@ -11,8 +11,8 @@ class QuestPath extends Component {
           <Panel.Title toggle>{this.props.user.fullname}</Panel.Title>
         </Panel.Heading>
         <Panel.Body collapsible>
-        {this.props.qPath.quest_paths.map(q => (
-          <Quest key={q.order} qPath={q} />
+          {this.props.qPath.quest_paths.map(q => (
+            <Quest key={q.order} qPath={q} />
           ))}
         </Panel.Body>
       </Panel>
