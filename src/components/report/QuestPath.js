@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-//import { Grid, PageHeader } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
+import Quest from './Quest';
 
 class QuestPath extends Component {
 
   render() {
     return (
-      <div>
-        Hi!!!!!!!!!!!!!
-      </div>
+      <Panel eventKey={this.props.user.id} bsStyle="primary">
+        <Panel.Heading>
+          <Panel.Title toggle>{this.props.user.fullname}</Panel.Title>
+        </Panel.Heading>
+        <Panel.Body collapsible>
+        {this.props.qPath.quest_paths.map(q => (
+          <Quest key={q.order} qPath={q} />
+          ))}
+        </Panel.Body>
+      </Panel>
     );
   }
 }

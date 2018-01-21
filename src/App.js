@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, PageHeader } from 'react-bootstrap';
+import { Grid, PageHeader, PanelGroup } from 'react-bootstrap';
 import Header from './Header';
 import QuestPath from './components/report/QuestPath';
 
@@ -69,7 +69,16 @@ class App extends Component {
 
   // Get user's quest path by id
   getUserQuestPath(userId) {
-    return {};
+    for (let q of this.state.questsData.quests) {
+      if (q.user_id === userId) {
+        return q;
+      }
+    }
+    // If not found, return empty object
+    return {
+      user_id: 0,
+      quest_paths: []
+    };
   }
 
   render() {
@@ -80,9 +89,11 @@ class App extends Component {
           <PageHeader>
             Students Quests Report
           </PageHeader>
-          {this.state.usersData.users.map(u => (
-            <QuestPath key={u.id} user={u} questPath={this.getUserQuestPath(u.id)} />
-          ))}
+          <PanelGroup accordion id="quest-accordion">
+            {this.state.usersData.users.map(u => (
+              <QuestPath key={u.id} user={u} qPath={this.getUserQuestPath(u.id)} />
+            ))}
+          </PanelGroup>
         </Grid>
       </div>
     );
