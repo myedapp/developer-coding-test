@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, PageHeader } from 'react-bootstrap';
 import Header from './Header';
+import QuestPath from './components/report/QuestPath';
 
 class App extends Component {
 
@@ -54,7 +55,7 @@ class App extends Component {
         this.setState({ questsData: questsData });
 
 
-console.log(this.state);
+        console.log(this.state);
 
       },
       // Handle errors
@@ -66,6 +67,11 @@ console.log(this.state);
       );
   }
 
+  // Get user's quest path by id
+  getUserQuestPath(userId) {
+    return {};
+  }
+
   render() {
     return (
       <div>
@@ -74,6 +80,9 @@ console.log(this.state);
           <PageHeader>
             Students Quests Report
           </PageHeader>
+          {this.state.usersData.users.map(u => (
+            <QuestPath key={u.id} user={u} questPath={this.getUserQuestPath(u.id)} />
+          ))}
         </Grid>
       </div>
     );
