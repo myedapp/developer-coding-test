@@ -1,1 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div>
+	<h1>Student</h1>
+	<select (change)="onSelectionChange($event)">
+		<option disabled selected value></option>
+		<option *ngFor="let user of users" value="{{user.id}}">{{user.fullname}}</option>
+	</select>
+	<h2>Quests Paths</h2>
+	<div *ngFor="let i of path">
+		<h3>(#{{i.order + 1}}) {{i.quest.name}}</h3>
+		<ul>
+			<li>Quest ID: {{i.quest.id}}</li>
+			<li>Quest Active: {{i.quest.is_active}}</li>
+			<li>Mark Submitted: {{i.mark.submitted}}</li>
+			<li>Mark Completion: {{i.mark.completion}}</li>
+			<li>Mark: {{i.mark.mark}}</li>
+		</ul>
+	</div>
+</div>
+<div #errEle></div>

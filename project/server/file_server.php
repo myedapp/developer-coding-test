@@ -16,7 +16,7 @@ class FileType {
 
 /**
  * Echos an error message back to the client
- * message [string]: the message to send
+ * @param message [string] the message to send
  */
 function echo_err($message) {
 	//create json message
@@ -31,7 +31,8 @@ function echo_err($message) {
 
 /**
  * Echos the contents of the request file
- * Returns: 1 if success, else 0
+ * @param file [string] file name
+ * @return 1 if success, else 0
  */
 function serve_json_file($file) {
 	//get list of files that can be served
@@ -55,7 +56,7 @@ function serve_json_file($file) {
 
 /**
  * Entry point for program, handles all post requests
- * Return: 1 on successful handing of request, else 0
+ * @return 1 on successful handing of request, else 0
  */
 function main() {
 	//get raw json data
