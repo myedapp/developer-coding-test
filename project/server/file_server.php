@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Author: Joshua Carter
  * Created: 25/01/2018
@@ -10,7 +11,8 @@ header("Access-Control-Allow-Origin: *");
 /**
  * Enum-like object for file types
  */
-class FileType {
+class FileType
+{
 	const JSON = "json_file";
 }
 
@@ -18,7 +20,8 @@ class FileType {
  * Echos an error message back to the client
  * @param message [string] the message to send
  */
-function echo_err($message) {
+function echo_err($message)
+{
 	//create json message
 	$data = [];
 	array_push($data, array(
@@ -34,12 +37,13 @@ function echo_err($message) {
  * @param file [string] file name
  * @return 1 if success, else 0
  */
-function serve_json_file($file) {
+function serve_json_file($file)
+{
 	//get list of files that can be served
 	$served_files = scandir("./served_files");
 
 	//if requested file is a match
-	if(in_array($file, $served_files)) {
+	if (in_array($file, $served_files)) {
 		//get file contents
 		$file_data = file_get_contents("./served_files/" . $file);
 		//echo to client
@@ -49,7 +53,7 @@ function serve_json_file($file) {
 	//else not a valid file request
 	else {
 		//throw error at client
-		echo_err("requested file could not be found.");
+		echo_err("Could not retrieve <strong>$file</strong> from file server.");
 		return 0;
 	}
 }
@@ -58,12 +62,13 @@ function serve_json_file($file) {
  * Entry point for program, handles all post requests
  * @return 1 on successful handing of request, else 0
  */
-function main() {
+function main()
+{
 	//get raw json data
 	$json_raw = file_get_contents("php://input");
 
 	//check for valid request data
-	if($json_raw === false) {
+	if ($json_raw === false) {
 		//throw error at client
 		echo_err("request missing or invalid.");
 		return 0;
@@ -73,14 +78,14 @@ function main() {
 	$json_data = json_decode($json_raw, true);
 
 	//check for decode failure
-	if($json_data === null) {
+	if ($json_data === null) {
 		//throw error at client
 		echo_err("request must be valid json format.");
 		return 0;
 	}
 
 	//is request for a json file?
-	if(isset($json_data[FileType::JSON])) {
+	if (isset($json_data[FileType::JSON])) {
 		//process file request
 		return serve_json_file($json_data[FileType::JSON]);
 	}

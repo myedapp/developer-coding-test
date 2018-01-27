@@ -1,5 +1,15 @@
+/**
+ * Author: Joshua Carter
+ * Created: 25/01/2018
+ */
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Http } from "@angular/http";
+
+//alert types
+enum AlertType {
+	INFO,
+	ERROR,
+}
 
 @Component({
 	selector: 'app-root',
@@ -10,21 +20,30 @@ export class AppComponent {
 
 	readonly file_server_url = "http://localhost/developer-coding-test/project/server/file_server.php";
 
-	//element used to display errors
-	@ViewChild("errEle")
-	errEle: ElementRef;
-
-	//data containers
+	//user data containers
 	users = [];
 	quest_paths = [];
 	path = [];
 
-	constructor(private http:Http) { }
+	//dropdown text
+	drop_text: string = "Select student";
+
+	//alert lists
+	errors: string[] = [];
+	infos: string[] = [];
+
+	constructor(private http: Http) { }
 
 	ngOnInit() {
 		//get student json files from server
 		this.getStudentFile("users.json", this.users);
 		this.getStudentFile("quest_pathways.json", this.quest_paths);
+
+		//DEMO alerts
+		this.alert(AlertType.INFO,
+			"The demo errors below show a local and remote error.");
+		this.getStudentFile("no_file_demo.json", null);
+		this.getStudentFile("bad_json_demo.json", null);
 	}
 
 	/**
@@ -32,7 +51,7 @@ export class AppComponent {
 	 * @param file the file to request
 	 * @param cache array to store json objects
 	 */
-	getStudentFile(file: string, cache:any[]) {
+	getStudentFile(file: string, cache: any[]): void {
 		//request for user file
 		let request = {
 			json_file: file
@@ -50,9 +69,9 @@ export class AppComponent {
 					let err = arr.find(x => x.hasOwnProperty('error'));
 
 					//if found error
-					if(err !== undefined) {
+					if (err !== undefined) {
 						//display error message
-						this.errorDisplay(err.error);
+						this.alert(AlertType.ERROR, err.error);
 					}
 					//else no error
 					else {
@@ -61,35 +80,61 @@ export class AppComponent {
 					}
 				}
 				//catch and display error
-				catch (err) {
-					this.errorDisplay(err.message);
+				catch (e) {
+					this.alert(AlertType.ERROR,
+						"Unable to parse <strong>" + file + "</strong> (" + e.message + ")");
 				}
 			})
 	}
 
 	/**
 	 * Invoked when client selects a user from menu
-	 * @param event onchange event
+	 * @param user selected user
 	 */
-	onSelectionChange(event) {
-		//get user id from student selection
-		let user_id = Number(event.srcElement.value);
+	onSelectionChange(user: any): void {
+		//find quest path with matching user id
+		this.path = this.quest_paths.find(x => x.user_id == user.id).quest_paths;
 
-		//find quest path with matching user_id
-		this.path = this.quest_paths.find(x => x.user_id == user_id).quest_paths;
+		//change dropdown text to reflect selection
+		this.drop_text = user.fullname;
 
 		//if no matching path
-		if(this.path === undefined) {
+		if (this.path === undefined) {
 			//display err
-			this.errorDisplay("no matching path for user");
+			this.alert(AlertType.ERROR, "No matching path for user could be found.");
+		}
+	}
+
+	/**
+	 * Gets a string for displaying a quest's mark status to the client
+	 * @param submitted whether quest has been submitted
+	 * @param mark quest's mark [null or number]
+	 * @return string to display
+	 */
+	getMarkStatus(submitted: boolean, mark: any): string {
+		//if no submission, then need to submit
+		if (!submitted) {
+			return "Submission Required";
+		}
+		//or if have submission but no mark, then awaiting mark 
+		else if (mark == null) {
+			return "Not Yet Marked";
+		}
+		//else must have a submission and a mark, show mark
+		else {
+			return mark + "%";
 		}
 	}
 
 	/**
 	 * Displays error to client
-	 * @param err message to dispaly
+	 * @param msg message to dispaly
 	 */
-	errorDisplay(err: string) {
-		this.errEle.nativeElement.innerHTML += "<p>" + err + "</p>";
+	alert(type: AlertType, msg: string): void {
+		//add to to appropriate list to be shown in template
+		switch (type) {
+			case AlertType.INFO: this.infos.push(msg); break;
+			case AlertType.ERROR: this.errors.push(msg); break;
+		}
 	}
 }
