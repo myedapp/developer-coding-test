@@ -9,7 +9,7 @@ I have tried to keep this project minimalistic without the results being overly 
 
 Before beginning work on the challenge I worked out how I would structure this submission to make assessing it simple; I hope that this proves evident.
 
-This is the first time I have used bootstrap (it's nice!) and so styling the page likely took an excessive amount of time, which is partly why I submitted separate commits for functionality and styling, each with their own time estimate.
+This is the first time I have used bootstrap (it's nice!) and so styling the page likely took an excessive amount of time, which is partly why I submitted separate commits for functionality and styling, each with their own time estimate (~2 hrs and ~5 hrs respectively).
 
 ---
 ## Tools Used
