@@ -70,7 +70,7 @@ function main()
 	//check for valid request data
 	if ($json_raw === false) {
 		//throw error at client
-		echo_err("request missing or invalid.");
+		echo_err("Request to file server is missing or invalid.");
 		return 0;
 	}
 
@@ -80,7 +80,7 @@ function main()
 	//check for decode failure
 	if ($json_data === null) {
 		//throw error at client
-		echo_err("request must be valid json format.");
+		echo_err("Request to file server not valid json format.");
 		return 0;
 	}
 
@@ -91,7 +91,7 @@ function main()
 	}
 
 	//json data did not match a valid request
-	echo_err("unable to process request.");
+	echo_err("Request to file server could not be fulfilled.");
 	return 0;
 }
 
