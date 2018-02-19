@@ -18,7 +18,7 @@ enum AlertType {
 })
 export class AppComponent {
 
-	readonly file_server_url = "http://localhost/developer-coding-test/project/server/file_server.php";
+	readonly file_server_url = "http://localhost/myed-code-test/project/server/file_server.php";
 
 	//user data containers
 	users = [];
