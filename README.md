@@ -26,9 +26,9 @@ I wrote a simple PHP script to act as the file server. I have tried to write it 
 ---
 ## Running the Production Build
 - Begin execution of your preferred virtual server software (I use WAMP).
-- Ensure that Apache and PHP 7.1.9 (or any 7x version) are running.
-- Place the `developer-coding-test` folder in the root of your `www` / `htdocs` folder.
-- Open a browser and go to [http://localhost/developer-coding-test/dist/index.html](http://localhost/developer-coding-test/dist/index.html)
+- Ensure that Apache and PHP 7x are running.
+- Pull this repo into the root of your `www` / `htdocs` folder.
+- Open a browser and go to [http://localhost/myed-code-test/dist/index.html](http://localhost/myed-code-test/dist/index.html)
 
 ---
 ## Compiling the Source Code
