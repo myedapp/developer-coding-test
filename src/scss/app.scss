@@ -1,0 +1,188 @@
+@import "colourPalette";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+  font-family: "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+body {
+  background-color: $bground;
+  height: 100%;
+}
+
+:hover, :visited, :link, :focus, :active {
+  text-decoration: none;
+}
+
+#root {
+  height: 100%;
+  background-color: $bground;
+  color: white;
+  border-radius: 7px;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: $white;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  background-color: $primary;
+  color: white;
+  align-self: flex-start;
+  width: 100%;
+  padding: 15px;
+  min-height: 70px;
+  img {
+    height: 40px;
+  }
+  span {
+    line-height: 40px;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  background-color: pink;
+  color: black;
+  // padding: 20px;
+
+  flex: 1;
+
+  .routes {
+    display: flex;
+    flex-direction: column;
+
+    background-color: yellow;
+    background-color: $white;
+    // padding: 20px;
+
+    flex: 1;
+
+    .mainContainer {
+      display: flex;
+      flex-direction: row;
+
+      background-color: green;
+      background-color: $bground;
+
+      flex: 1;
+      //align-self: stretch;
+      // padding: 20px;
+    }
+  }
+}
+
+
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  background-color: $black;
+  padding: 5px;
+  padding-top: 5%;
+  border: 1px solid black;
+  min-width: 180px;
+  align-self: stretch;
+  .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    align-self: stretch;
+    div {
+      padding: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      span {
+        color: $white;
+        text-decoration: none;
+        padding: 5px;
+        border-radius: 2px;
+        border: 1px solid orange;
+      }
+      .selectedUser {
+        span {
+          background-color: orange;
+            border-radius: 2px!important;
+        }
+      }
+
+    }
+  }
+}
+
+.profile {
+  align-self: flex-start;
+  background-color: $bground;
+  font-weight: 400;
+  font-size: 14px;
+  flex: 1;
+  // border-radius: 10px 10px 10px 10px;
+  // margin: 5% 0 5% 0;
+  padding: 3%;
+  .path {
+    background-color: $bground;
+    margin-top: 3%;
+    div {
+      padding: 2px;
+      .card {
+        background-color: $primary;
+        border-radius: 10px 10px 10px 10px;
+        .quest {
+          padding: 2.5%;
+          background-color: $black;
+          color: orange;
+          border-radius: 10px 10px 0px 0px;
+          border: 1px solid $white;
+          border-bottom: 0px;
+        }
+        .mark {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          @media only screen and (max-width: 750px) {
+            flex-direction: column;
+            padding: 5%;
+          }
+
+          padding: 1%;
+          background-color: $black;
+          color: orange;
+          border-radius: 0px 0px 10px 10px;
+          border: 1px solid $white;
+          div {
+            padding: 3%;
+          }
+        }
+        strong {
+          font-weight: 500;
+          color: $white;
+        }
+      }
+    }
+  }
+}
