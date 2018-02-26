@@ -1,0 +1,6 @@
+> 1%
+Last 2 versions
+IE 6-10
+
+# Run : npx autoprefixer --info
+# To see prefixes and browser support
