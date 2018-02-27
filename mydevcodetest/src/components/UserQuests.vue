@@ -17,7 +17,7 @@
                   <span class="badge badge-primary badge-pill">{{userPathCount(user)}}</span>
                 </div>
               </div>
-                <b-collapse class="col-xs-12 accordion" id="accordion1" ref="collapsible" v-if="hasPathways(user)" visible="true" accordion="my-accordion" role="tabpanel">
+                <b-collapse class="col-xs-12 accordion" id="accordion1" ref="collapsible" v-if="hasPathways(user)" :visible="true" accordion="my-accordion" role="tabpanel">
                     <ul class="list-group questPaths">
                       <li class="list-group-item col-xs-12" v-for="(pathway) in getPathways(user)" :key="pathway.quest.id" :order="pathway.order">
                         <div class="row justify-content-between">
@@ -73,16 +73,10 @@ export default {
       // Handle Retrieval and Compilation of User Data
       this.loadUserData().then((retrievedUserData) => {
         // Save retrieved records
-        console.log('-Retrieved Users-')
-        console.log(retrievedUserData)
-
         this.users = retrievedUserData
         this.alertMessage = null
       }).catch((retrieveUserError) => {
         // Handle Front End Error
-        console.log('-Retrieved Users Error-')
-        console.log(retrieveUserError)
-
         this.users = []
         this.alertMessage = retrieveUserError.message
       })
@@ -117,26 +111,6 @@ export default {
 
       return 0
     },
-
-    // Toggle the current users Panel open and close
-    openUser (userId) {
-      console.log('CLICK')
-      console.log(userId)
-      const users = this.users
-      // this.$refs['item' + key].visible = false;
-
-      // Find UserId in Array; Toggle data Screen
-      users.forEach((thisUser, key) => {
-        console.log(thisUser.id)
-        users[key].open = false
-        if (userId === thisUser.id) {
-          console.log('MATCHES')
-          users[key].open = true
-        }
-      })
-
-      this.users = users
-    },
     loadUserData () {
       return new Promise((resolve, reject) => {
         // Retrieve Users From Data Source
@@ -154,6 +128,7 @@ export default {
         })
       })
     },
+    // Match Quest Pathways Dataset with User Objects
     compileUserData (retrievedPaths) {
       const compiledData = []
       if (this.users.length > 0) {

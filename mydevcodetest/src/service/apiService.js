@@ -3,7 +3,7 @@ import API from '@/utils/apiUrl'
 
 // Method for writing logs, rather than inline console.logs
 const log = (msg) => {
-  console.log(msg)
+  // console.log(msg)
 }
 
 const validResponse = (response) => {
