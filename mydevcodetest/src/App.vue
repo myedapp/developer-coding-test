@@ -1,11 +1,17 @@
 <template>
   <div id="app">
+    <header-wrap/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import HeaderWrap from '@/components/HeaderWrap'
+
 export default {
+  components: {
+    HeaderWrap
+  },
   name: 'App'
 }
 </script>
@@ -17,6 +23,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 64px;
 }
 </style>
