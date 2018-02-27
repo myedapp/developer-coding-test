@@ -2,7 +2,7 @@
   <div class="landing">
     <div class="container-fluid">
       <div class="row">
-        <h1 class="col-xs-12 col-sm-6 offset-sm-3">{{ msg }}</h1>
+        <h1 class="col-xs-12 col-sm-6 offset-sm-3 pageTitle">{{ msg }}</h1>
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-6 offset-sm-3">
@@ -152,7 +152,7 @@ export default {
   data () {
     return {
       loading: true,
-      msg: 'UserQuests',
+      msg: 'User Quest Pathways',
       users: [],
       alertMessage: null
     }
