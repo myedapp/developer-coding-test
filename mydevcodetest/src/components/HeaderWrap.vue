@@ -1,5 +1,5 @@
 <template>
-  <div id='header'>
+  <div id='header' class="container-fluid">
     <img class="headerLogo" src='../assets/logo.jpg'>
     <h1>{{headerTitle}}</h1>
   </div>
@@ -27,15 +27,17 @@ export default {
 }
 
 #header h1 {
-  height: 48px;
-  width: 400px;
+  height: auto;
+  margin: 0;
+  padding-top: 14px;
+  text-align: left;
   font-size: 2rem;
   position: absolute;
   left: 64px;
 }
 .headerLogo {
   padding: 7px;
-  height: 48px;
+  height: 64px;
   position: absolute;
   left: 0;
 }
