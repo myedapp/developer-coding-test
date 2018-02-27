@@ -23,7 +23,9 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
+  background: #d4edda;
   border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+  z-index: 10;
 }
 
 #header h1 {

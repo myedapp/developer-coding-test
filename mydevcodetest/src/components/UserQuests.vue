@@ -6,11 +6,46 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-6 offset-sm-3">
-          <ul class="list-group">
-            <li v-bind:items="users" v-for="(user) in users" :key="user.id">
-              {{user.fullname}}
-            </li>
-          </ul>
+          <b-alert :show="alertMessage!==null" @dismissed="alertMessage=null" variant="warning">{{alertMessage}}</b-alert>
+          <div class="list-group userQuests">
+            <a href="#" class="list-group-item list-group-item-action col-xs-12"  v-bind:items="users" v-for="(user) in users" :key="user.id">
+              <div class="row justify-content-between">
+                <div class="col-4">
+                  <p class="userFullName">{{user.fullname}}</p>
+                </div>
+                <div class="col-1">
+                  <span class="badge badge-primary badge-pill">{{userPathCount(user)}}</span>
+                </div>
+              </div>
+                <b-collapse class="col-xs-12 accordion" id="accordion1" ref="collapsible" v-if="hasPathways(user)" visible="true" accordion="my-accordion" role="tabpanel">
+                    <ul class="list-group questPaths">
+                      <li class="list-group-item col-xs-12" v-for="(pathway) in getPathways(user)" :key="pathway.quest.id" :order="pathway.order">
+                        <div class="row justify-content-between">
+                           <div class="col-4">
+                            <p class="col-12 questFullName">{{pathway.quest.name}}</p>
+                            <p class="col-12 submittedValue" v-if="pathway.mark.submitted">SUBMITTED</p>
+                          </div>
+                          <div class="col-8">
+                            <div class="row">
+                              <div class="col-3 text-left">Completion:</div>
+                              <div class="col-9">
+                                  <b-progress v-if="pathway.mark.completion !== 0" :value="pathway.mark.completion || 0" show-progress :variant="getCompletionVariant(pathway.mark.completion)"></b-progress>
+                                  <p class="col-12 notStarted" v-if="pathway.mark.completion === 0">Not Started</p>
+                              </div>
+                            </div>
+                            <div class="row" v-if="pathway.mark.mark">
+                              <div class="col-3 text-left">Mark:</div>
+                              <div class="col-9">
+                                  <b-progress :value="pathway.mark.mark" show-progress ></b-progress>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                </b-collapse>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -20,32 +55,128 @@
 <script>
 import * as ApiService from '@/service/apiService'
 
+import bAlert from 'bootstrap-vue/es/components/alert/alert'
+import bCollapse from 'bootstrap-vue/es/components/collapse/collapse'
+import bProgress from 'bootstrap-vue/es/components/progress/progress'
+import bProgressBar from 'bootstrap-vue/es/components/progress/progress-bar'
+
 export default {
   name: 'UserQuests',
-  components: {},
+  components: {
+    bAlert,
+    bCollapse,
+    bProgress,
+    bProgressBar
+  },
   beforeMount () {
-    // Retrieve Users From Data Source
-    ApiService.getUsers().then((retrievedUsers) => {
-      this.users = retrievedUsers || []
-    }).catch((err) => {
-      console.log('Error Retrieving Users')
-      this.users = []
-      this.alertMessage = err.message
-      console.log(error.message);
+    this.$nextTick(() => {
+      // Handle Retrieval and Compilation of User Data
+      this.loadUserData().then((retrievedUserData) => {
+        // Save retrieved records
+        console.log('-Retrieved Users-')
+        console.log(retrievedUserData)
+
+        this.users = retrievedUserData
+        this.alertMessage = null
+      }).catch((retrieveUserError) => {
+        // Handle Front End Error
+        console.log('-Retrieved Users Error-')
+        console.log(retrieveUserError)
+
+        this.users = []
+        this.alertMessage = retrieveUserError.message
+      })
     })
   },
   methods: {
-    loadData () {
-      console.log('LOAD DATA')
+    // If Quest is not fully completed, use yellow bar not green
+    getCompletionVariant (completion) {
+      if (completion && completion === 100) return 'success'
+
+      return 'warning'
     },
-  },
-  fetchMore () {
-    // debugger;
-    this.loadData()
+    // Return a valid array of user quest pathways
+    getPathways (user) {
+      return user.questPaths || []
+    },
+
+    // Flag to check if user has any valid quest pathways
+    hasPathways (user) {
+      return (user && user.questPaths && user.questPaths.length > 0)
+    },
+
+    // Is Accordion Panel Visible for this User?
+    isVisible (user) {
+      return true
+    },
+    // Generates "Quest Pathways Counter" for Badges
+    userPathCount (user) {
+      if (user && user.questPaths && user.questPaths.length > 0) {
+        return user.questPaths.length
+      }
+
+      return 0
+    },
+
+    // Toggle the current users Panel open and close
+    openUser (userId) {
+      console.log('CLICK')
+      console.log(userId)
+      const users = this.users
+      // this.$refs['item' + key].visible = false;
+
+      // Find UserId in Array; Toggle data Screen
+      users.forEach((thisUser, key) => {
+        console.log(thisUser.id)
+        users[key].open = false
+        if (userId === thisUser.id) {
+          console.log('MATCHES')
+          users[key].open = true
+        }
+      })
+
+      this.users = users
+    },
+    loadUserData () {
+      return new Promise((resolve, reject) => {
+        // Retrieve Users From Data Source
+        ApiService.getUsers().then((retrievedUsers) => {
+          this.users = retrievedUsers || []
+          // Retrieve Quest Path Meta
+          ApiService.getQuestPaths().then((retrievedPaths) => {
+            const compiledUserData = this.compileUserData(retrievedPaths)
+            return resolve(compiledUserData)
+          }).catch((err) => {
+            return reject(err)
+          })
+        }).catch((err) => {
+          return reject(err)
+        })
+      })
+    },
+    compileUserData (retrievedPaths) {
+      const compiledData = []
+      if (this.users.length > 0) {
+        const users = this.users
+
+        users.forEach((thisUser, key) => {
+          compiledData[key] = thisUser
+          compiledData[key].open = true
+          compiledData[key].questPaths = []
+          retrievedPaths.forEach(thisQuestPath => {
+            if (thisUser.id === thisQuestPath.user_id) {
+              compiledData[key].questPaths = thisQuestPath.quest_paths
+            }
+          })
+        })
+        this.users = compiledData
+      }
+      return compiledData
+    }
   },
   data () {
     return {
-      loading: false,
+      loading: true,
       msg: 'UserQuests',
       users: [],
       alertMessage: null
@@ -56,6 +187,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.landing {
+  z-index: 1;
+}
 h1,
 h2 {
   font-weight: normal;
@@ -70,5 +204,40 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.userQuests .list-group-item {
+  color: #343a40;
+}
+
+.userQuests .list-group-item .userFullName {
+  margin: 0;
+  text-align: left;
+  font-size: 1.5rem;
+  color: #343a40;
+}
+
+.list-group-item .accordion {
+  border-top: solid 1px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.list-group-item .questFullName,
+.list-group-item .submittedValue {
+  text-align: left;
+  margin-bottom: 2px;
+}
+.list-group-item .submittedValue {
+  color: #28a745;
+}
+
+.list-group-item .notStarted {
+  color: #721c24;
+  text-align: left;
+  margin-bottom: 2px;
+}
+
+.accordion.active {
+  display: block;
 }
 </style>
