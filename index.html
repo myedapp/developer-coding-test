@@ -1,87 +1,91 @@
 <!DOCTYPE html>
-<html  ng-app="myApp">
+<html ng-app="myApp">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body ng-controller="MyCtrl">
-<div style="margin: 15px">
-<div class="page-header">
-    <h2>
-         <span cl ass="label label-default" >Amy Test </span>
-    </h2>
-</div>
-<div class="panel">
-    <table class="table table-striped class ">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Quest</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="item in studentList.quest ">
-            <td>{{item.user_id}}</td>
-            <td>{{item.user_name}}</td>
-            <td ng-repeat="quest in item.quest_paths ">
-             <span ng-if ="quest.mark.mark" class="label label-info">Mark:{{quest.mark.mark}}</span>{{quest.quest.name}}
-                <div class="progress progress-striped active">
-                    <div class="progress-bar progress-bar-success" role="progressbar"
-                         aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-                         style="width: {{quest.mark.completion}}%">
-                        {{quest.mark.completion}}%
-                        <span ng-if ="quest.mark.completion==0" >not start yet</span>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div></div>
-<script type="text/javascript">
-    var model = {
-        students:[],
-        quest:[]
-    };
-    var myApp = angular.module("myApp", []);
+    <div style="margin: 15px">
+        <div class="page-header">
+            <h2>
+                <span cl ass="label label-default">Amy Test</span>
+            </h2>
+        </div>
+        <div class="panel">
+            <table class="table table-striped class ">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quest</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in studentList.quest ">
+                        <td>{{item.user_name}}</td>
+                        <td ng-repeat="quest in item.quest_paths ">
+                            <div>
+                                <div style="margin-bottom: 15px;">
+                                    {{quest.quest.name}}
+                                </div>
+                            </div>
+                            <span class="label label-success">Completion:{{quest.mark.completion}}</span>
+                            <div class="progress progress-striped active"> <span class="text-danger label label-warning" ng-if="quest.mark.completion==0">not start yet</span>
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{quest.mark.completion}}%">
+                                    {{quest.mark.completion}}%
+                                </div>
+                            </div>
+                            <div ng-if="quest.mark.mark">
+                                <span class="label label-info">Mark:{{quest.mark.mark}}</span>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{quest.mark.mark}}%">
+                                        {{quest.mark.mark}}%
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var model = {
+            students: [],
+            quest: []
+        };
+        var myApp = angular.module("myApp", []);
 
-    //加载json数据
-    myApp.run(function ($http) {
-
-        $http.get("students.json").success(function (data) {
-            model.students = data;
-        }).error(function(data) {
-            model.error = 'error';
-        });
-        $http.get("quest.json").success(function (data) {
-            model.quest = data;
-        }).error(function(data) {
-            model.error = 'error！';
-        });
-
-        angular.forEach(model.quest, function(quest){
-             console.log('2');
-             angular.forEach(model.students, function(student){
-                if(student.id===quest.user_id){
-                    quest.push({'user_name':student.fullname});
-                }
+        //Get Json data
+        myApp.run(function($http, $q) {
+            var promiseArray = [];
+            promiseArray.push($http.get("users.json"));
+            promiseArray.push($http.get("quest_pathways.json"));
+            $q.all(promiseArray).then(function(data) {
+                model.students = data[0].data;
+                model.quest = data[1].data;
+                angular.forEach(model.quest, function(quest) {
+                    angular.forEach(model.students, function(student) {
+                        if (student.id === quest.user_id) {
+                            quest.user_name = student.fullname;
+                        }
+                    });
+                });
             });
+
         });
-        console.log(model);
-    });
-    //控制器
-    myApp.controller("MyCtrl", function ($scope) {
-
-        $scope.studentList = model;
-
-
-    })
-</script>
+        //Add controller
+        myApp.controller("MyCtrl", function($scope) {
+            $scope.studentList = model;
+        })
+    </script>
 </body>
+
 </html>
