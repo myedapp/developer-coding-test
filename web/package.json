@@ -1,0 +1,25 @@
+{
+  "name": "questlink",
+  "version": "1.0.0",
+  "description": "Front-end display for quests.",
+  "main": ".src/index.js",
+  "repository": "https://github.com/tagma-1/developer-coding-test/",
+  "author": "tagma-1",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "match-sorter": "^2.2.1",
+    "parcel-bundler": "^1.7.0",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-modal": "^3.3.2",
+    "react-table": "^6.8.0"
+  }
+}
