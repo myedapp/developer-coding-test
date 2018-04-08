@@ -36,24 +36,24 @@
 
 1. Teachers can view each student's quests as a row in an interactive table. Each table row displays:
 
-  - the student's name 
-  - the quest's name
-  - the percentage of the quest the student completed
-  - whether the student has submitted the quest
-  - the mark the student received (if any)
+  	- the student's name 
+  	- the quest's name
+  	- the percentage of the quest the student completed
+  	- whether the student has submitted the quest
+  	- the mark the student received (if any)
 
 2. Each column of the table can be dynamically sorted by clicking on the header.
 
 3. Table data for each column can be dynamically filtered by typing the desired data - for example, the student's name or the quest's name. The submission and mark columns can be filtered by drop down menu.
 
 4. Each student's name can be clicked to display additional useful data for the teacher to gauge the student's progress:
-  - the average mark the student has received for his or her quests (next to the average mark for all students)
-  - the student's average quest completion rate (next to the average completion rate for all students)
-  - how many quests the student has submitted
-  - how many unsubmitted quests the student currently has
-  - how many of the student's quests are unmarked
+	  - the average mark the student has received for his or her quests (next to the average mark for all students)
+	  - the student's average quest completion rate (next to the average completion rate for all students)
+	  - how many quests the student has submitted
+	  - how many unsubmitted quests the student currently has
+	  - how many of the student's quests are unmarked
 
 5. Each quest's name can be clicked to display additional useful data for the teacher to assess the quest:
-  - the average mark the quest has received from all students
-  - the quest's average completion rate across all students
-  - how many of the quest's submissions are unmarked
+	  - the average mark the quest has received from all students
+	  - the quest's average completion rate across all students
+	  - how many of the quest's submissions are unmarked
