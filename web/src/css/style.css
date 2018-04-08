@@ -1,0 +1,76 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.rt-resizable-header-content {
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  margin: 5%;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+  background: #3E64A1;
+  color: white;
+  min-width: 20%;
+  padding: 2rem 2rem;
+  outline: none;
+}
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.modal ul {
+  margin-top: 0;
+}
+
+.modal h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal button, .page-button {
+  background-color: white;
+  outline: none;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  color: #3E64A1;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  float: right;
+}
+
+.modal button:hover {
+  background-color: #DBC554;
+  color: #3E64A1;
+}
+
+#table-link {
+  color: #0000EE;
+}
+
+#table-link:hover {
+  border-bottom: 1px solid #0000EE;
+  cursor: pointer;
+}
+
+.average-text{
+  color: #DBC554;
+}
