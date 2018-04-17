@@ -1,6 +1,8 @@
 <div class="container">
     <h3> Student Details </h3>
 
+    Search Students : <input type="text" ng-model="studentFilter.user_id" class="form-control" placeholder="USER ID">    </br>  </br>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -13,7 +15,7 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat = "quest in pathways">
+        <tr ng-repeat = "quest in pathways | filter:studentFilter ">
             <td class="text-center"> {{quest.user_id}} </td>
             <td class="text-center" ng-repeat="student in students" ng-if="student.id == quest.user_id"> {{student.fullname}} </td>
 
