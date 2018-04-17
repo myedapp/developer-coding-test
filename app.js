@@ -1,7 +1,7 @@
 
 (function() {
 
-    var studentsApp = angular.module('studentsApp', ['ngRoute']);
+    var studentsApp = angular.module('studentsApp', ['ngRoute', 'ngAnimate']);
 
     studentsApp.config(function($routeProvider){
         $routeProvider
