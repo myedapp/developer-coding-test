@@ -1,6 +1,6 @@
 
 (function() {
 
-    var studentsApp = angular.module('studentsApp', []);
+    var studentsApp = angular.module('studentsApp', ['ngRoute']);
 
 }())
