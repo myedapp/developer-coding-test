@@ -15,7 +15,7 @@
         </thead>
 
         <tbody>
-        <tr ng-repeat = "quest in pathways | filter:studentFilter ">
+        <tr ng-repeat = "quest in pathways | filter:studentFilter " class="repeat-animation">
             <td class="text-center"> {{quest.user_id}} </td>
             <td class="text-center" ng-repeat="student in students" ng-if="student.id == quest.user_id"> {{student.fullname}} </td>
 
