@@ -1,1 +1,39 @@
-{{students}}
+<div class="container">
+    <h3> Student Details </h3>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="text-center"> User ID </th>
+            <th class="text-center"> Name </th>
+            <th class="text-center"> Quest </th>
+            <th class="text-center"> Completion % </th>
+            <th class="text-center"> Mark % </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat = "quest in pathways">
+            <td class="text-center"> {{quest.user_id}} </td>
+            <td class="text-center" ng-repeat="student in students" ng-if="student.id == quest.user_id"> {{student.fullname}} </td>
+
+            <td>
+                <ul class="list-group" ng-repeat="quest in quest.quest_paths">
+                    <li class="list-group-item list-group-item-info text-center"> {{quest.quest.name}} </li>
+                </ul>
+            </td>
+            <td>
+                <ul class="list-group" ng-repeat="quest in quest.quest_paths">
+                    <li class="list-group-item list-group-item-info text-center"> {{quest.mark.completion}} </li>
+                </ul>
+            </td>
+            <td>
+                <ul class="list-group" ng-repeat="quest in quest.quest_paths">
+                    <li class="list-group-item list-group-item-info text-center" ng-if="quest.mark.mark !== null"> {{quest.mark.mark}} </li>
+                    <li class="list-group-item list-group-item-info text-center" ng-if="quest.mark.mark === null"> null </li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
