@@ -5,11 +5,11 @@
         var factory = {};
 
         factory.getStudents = function () {
-            return $http.get('../users.json');
+            return $http.get('users.json');
         };
 
         factory.getPathways = function() {
-            return $http.get('../quest_pathways.json');
+            return $http.get('quest_pathways.json');
         }
 
         return factory;
