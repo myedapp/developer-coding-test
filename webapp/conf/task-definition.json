@@ -1,0 +1,50 @@
+{
+  "containerDefinitions": [
+    {
+      "name": "fw-frontend",
+      "links": [
+        "fw-backend"
+      ],
+      "image": "424298662070.dkr.ecr.us-east-1.amazonaws.com/fw-frontend:DOCKER_TAG_FRONTEND",
+      "hostname": "fw-frontend",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ],
+      "memory": 128,
+      "cpu": 10
+    },
+    {
+      "name": "fw-backend",
+      "image": "424298662070.dkr.ecr.us-east-1.amazonaws.com/fw-backend:DOCKER_TAG_BACKEND",
+      "hostname": "fw-backend",
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 3000
+        }
+      ],
+      "cpu": 10,
+      "memory": 128,
+      "essential": true
+    },
+    {
+      "name": "fw-document",
+      "image": "424298662070.dkr.ecr.us-east-1.amazonaws.com/fw-document:DOCKER_TAG_DOCUMENT",
+      "hostname": "fw-document",
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 8080
+        }
+      ],
+      "cpu": 10,
+      "memory": 128,
+      "essential": true
+    }
+  ],
+  "family": "fw_BRANCH_NAME"
+}

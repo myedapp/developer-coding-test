@@ -1,0 +1,19 @@
+[
+	{
+		"_id": {
+			"$oid": "59b39bcf538ff606c04d12db"
+		},
+		"__v": 0,
+		"email": "admin@test.com",
+		"password": "$2a$10$ZfF2V9N3rpazJwveaYfXn.5ye7Sw8y9KfLMhAzk6iNPxZedKr8wO6",
+		"userType": "admin",
+		"status": "Active",
+		"avatar": "http://http://via.placeholder.com/300",
+		"createdAt": {
+			"$date": "2018-03-16T09:26:28.311Z"
+		},
+		"updatedAt": {
+			"$date": "2018-03-16T09:27:24.317Z"
+		}
+	}
+]
