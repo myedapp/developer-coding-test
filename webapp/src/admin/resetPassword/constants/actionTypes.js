@@ -1,0 +1,3 @@
+const RESET_PASSWORD = 'ADM/RESET_PASSWORD';
+
+export default RESET_PASSWORD;

@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules/
+
+# dotenv environment variables file
+.env
+
+# MongoDB data directory
+mongo/
+
+# yarn error log
+yarn-error.log

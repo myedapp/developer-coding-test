@@ -1,0 +1,49 @@
+html {
+  height: 100%;
+}
+
+.ReactTable .rt-thead.-header {
+  box-shadow: none !important;
+  border-bottom: 2px solid #E2EAF0;
+}
+
+.manage-account-delete-btn:hover {
+  background-color: #EA3B33 !important;
+}
+
+/* react-bootstrap-table */
+.filter {
+  display: none;
+}
+
+.page-select-box {
+  display: inline-block;
+  min-width: 110px;
+}
+
+
+.pagination-sm>li:first-child>a, .pagination-sm>li:first-child>span {
+  border-radius: 25px;
+  border-width: 0;
+}
+
+.pagination-sm>li:last-child>a, .pagination-sm>li:last-child>span {
+  border-radius: 25px;
+  border-width: 0;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+  color: white;
+  background: #239DFF;
+  border-radius: 25px;
+}
+
+.pagination-sm>li>a, .pagination-sm>li>span {
+  border-radius: 25px;
+  border-width: 0;
+  background-color: transparent;
+  color: #666666;
+}
+
+
+
