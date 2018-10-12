@@ -16,7 +16,7 @@ class ExampleTest extends TestCase
     {
     
         $client = new \GuzzleHttp\Client();
-        $response = $client->get(\App\Helper\ApiHelper::$API);
+        $response = $client->get(config('app.external_url'));
         $r = $response->getBody()->getContents();
         $json = json_decode($r, true);
 

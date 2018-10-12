@@ -15,7 +15,7 @@ class ExampleTest extends TestCase
     {
 
         $response = $this->get('/');
-        $this->assertTrue(strpos($response->getContent(), 'Student id:') !== false );
+        $this->assertTrue(strpos($response->getContent(), 'Student:') !== false );
         
         $this->assertTrue(strpos($response->getContent(), 'Completion:') !== false );
 
