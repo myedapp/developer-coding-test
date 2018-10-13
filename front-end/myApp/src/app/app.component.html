@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+      <div class="text-center top">
+        <h3>Education System</h3>
+      </div>
+      <hr>
+      <table class="side-table">
+        <tbody *ngFor="let user of users">
+          <tr>
+            <td>
+              <button class="side-button" (click)="getQuests(user.id)">{{user.fullname}}</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-8">
+      <div class="text-center top">
+        <h1>Welcome to My Demo</h1>
+      </div>
+      <hr>
+      <div *ngIf="isclick; else elseBlock">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <td>Quest ID</td>
+              <td>Quest Name</td>
+              <td>Completion</td>
+              <td>Mark</td>
+              <td>submit status</td>
+            </tr>
+          </thead>
+          <tbody *ngFor="let quest of quests">
+            <tr>
+              <td>{{quest.quest.id}}</td>
+              <td>{{quest.quest.name}}</td>
+              <td>{{quest.mark.completion}}</td>
+              <td>{{quest.mark.mark}}</td>
+              <td>{{quest.mark.submitted}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #elseBlock>
+        <p>Here will display the information for each students after you select from side bar</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.row.content {
+    height: 120vh;
+}
+    
+.sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+}
+.side-table {
+    width:100%;
+}
+.side-button {
+    text-align: left;
+    width:100%;
+}
+.side-button:focus {
+    background-color: #337ab7;
+    color:#fff;
+}
+.text-center {
+    text-align: center;
+}
+.top {
+    height:8vh;
+}
+@media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height: auto;} 
+  }
+    
