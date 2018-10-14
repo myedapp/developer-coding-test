@@ -6,7 +6,7 @@ const cors = require('cors');
 
 const quests = require('../quest_pathways.json');
 const users = require('../users.json');
-//test app
+
 app.use(cors());
 app.use('/', express.static(__dirname + '/front-end/myApp/dist/myApp'));
 app.use(bodyParser.json({ limit: '10mb', extended: true }));
