@@ -21,3 +21,6 @@ Running the Application involves starting the nodejs server and then running the
 * Extract the Github project to your computer.
 * Run the nodejs server: using a terminal navigate to the server directory and execute the command "node server.js".
 * Run the frontend application: using another terminal navigate to the myedquests directory and execute the command "npm start". A production build can also be generated with npm run build.
+
+## Troubleshooting
+I have noticed that sometimes when cloning this repository the 'react-scripts' module cannot be found. If this occurs, run "npm install react-scripts"
