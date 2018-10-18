@@ -20,4 +20,4 @@ The reason behind using these technologies was to deliver the myEd project in a 
 Running the Application involves starting the nodejs server and then running the frontend application.
 * Extract the Github project to your computer.
 * Run the nodejs server: using a terminal navigate to the server directory and execute the command "node server.js".
-* Run the frontend application: using another terminal navigate to the frontend directory and execute the command "npm start". A production build is also available in the build folder for use with serve tools.
+* Run the frontend application: using another terminal navigate to the myedquests directory and execute the command "npm start". A production build can also be generated with npm run build.
