@@ -20,7 +20,7 @@ The reason behind using these technologies was to deliver the myEd project in a 
 Running the Application involves starting the nodejs server and then running the frontend application.
 * Extract the Github project to your computer.
 * Run the nodejs server: using a terminal navigate to the server directory and execute the command "node server.js".
-* Run the frontend application: using another terminal navigate to the myedquests directory and execute the command "npm start". A production build can also be generated with npm run build.
+* Run the frontend application: using another terminal navigate to the myedquests directory. Run "npm install" to fetch dependency packages, then execute the command "npm start". A production build can also be generated with npm run build.
 
 ## Troubleshooting
 I have noticed that sometimes when cloning this repository the 'react-scripts' module cannot be found. If this occurs, run "npm install react-scripts"
