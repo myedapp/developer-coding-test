@@ -7,6 +7,19 @@
 import React, { Component } from 'react';
 import './App.css';
 
+/**
+ * @constant
+ * @type {Object} 
+ * @description stores API information.
+ * @property {String} USERS defines the get users operation.
+ * @property {String} QUEST_PATHWAYS defines the get quest pathways operation.
+ */
+const API = {
+  HOST: "http://localhost:3000/",
+  USERS: "users",
+  QUEST_PATHWAYS: "questpathways"
+};
+
 /** Class that represents a simple application for viewing student quests. */
 class App extends Component {
   
@@ -25,6 +38,24 @@ class App extends Component {
    * Fetches the user and quest data.
   */
   componentDidMount() {
+
+    fetch(API.HOST+API.USERS).then(data => {
+      return data.json();
+    }).then(
+      json => {
+        this.setState({
+          users: json
+        });
+    });
+
+  fetch(API.HOST+API.QUEST_PATHWAYS).then(data => {
+      return data.json();
+    }).then(
+      json => {
+        this.setState({
+          quests: json
+        });
+    });
   }
 
   /**
