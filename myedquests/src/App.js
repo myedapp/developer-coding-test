@@ -5,7 +5,8 @@
  */
 
 import React, { Component } from 'react';
-import './App.css';
+import {Tabs, Tab, TabPanel, TabList } from 'react-web-tabs';
+import {Alert, Badge, Card, CardBody, CardTitle, Container, Progress} from 'reactstrap'
 
 /**
  * @constant
@@ -48,8 +49,8 @@ class App extends Component {
         });
     });
 
-  fetch(API.HOST+API.QUEST_PATHWAYS).then(data => {
-      return data.json();
+    fetch(API.HOST+API.QUEST_PATHWAYS).then(data => {
+        return data.json();
     }).then(
       json => {
         this.setState({
@@ -62,6 +63,8 @@ class App extends Component {
    * Renders the user and quest data using imported components.
   */
   render() {
+
+    return null;
   }
 }
 
