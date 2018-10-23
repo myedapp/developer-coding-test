@@ -1,0 +1,30 @@
+.user{
+	border: 1px solid lightgrey;
+	margin: 10px 0px;
+	padding: 10px;
+	border-radius: 10px;
+}
+@media only screen and (min-width: 768px) {
+	.user {
+		height: 350px;
+	}
+}
+.username{
+	text-align: center;
+	background-color: lightblue;
+	padding: 5px;
+	margin-bottom: 5px;
+	font-size: 1.5em;
+	border-radius: 10px;
+}
+.questname{
+	font-weight: bold;
+}
+.questname span{
+	font-weight: initial;
+	color: red;
+	font-style: italic;
+}
+.questmark{
+	font-weight: bold;
+}

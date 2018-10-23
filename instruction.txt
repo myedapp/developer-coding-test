@@ -1,0 +1,17 @@
+To run this project, please do one of the following:
+
+Method 1
+--------
+1. Run a Xampp/Lamp (with PHP ver 5.xx), then upload to a web directory (say myedonlinetest).
+2. Then open browser, and point url to http://localhost/myedonlinetest.
+3. File to upload: *.php, *.js, *.css, and *.json
+
+Method 2
+--------
+1. Upload to any Linux webhosting that support php.
+2. Then point the browser to that url.
+3. File to upload: *.php, *.js, *.css, and *.json
+
+
+For ease of testing it, just point to http://plus95.smeretailsolutions.com. I have
+uploaded a working copy there for convenience.
