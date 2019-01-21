@@ -1,14 +1,20 @@
-# myEd Developer Coding Challenge
+# myEdOnline Developer Coding Challenge
 
-This is coding challenge for potential recruits to myEd. It should take about 2 hours, though feel free to spend more or less time as you see fit.
+This is coding challenge for potential recruits to myEdOnline. It should take about 2 hours, though feel free to spend more or less time as you see fit.
 
 ## Background
 
-myEd provides an app that lets teachers send out work (“quests”) to students in a personalised way. Rather than a “one sized fits all” approach where every student gets the same work at the same time, we focus on individualising the learning pathway for each student, so the are given work that is right for their interests and their skill level.
+myEdOnline provides an app that lets teachers send out work (“quests”) to students in a personalised way. Rather than a “one sized fits all” approach where every student gets the same work at the same time, we focus on individualising the learning pathway for each student, so the are given work that is right for their interests and their skill level.
 
 ## The task
 
-This repository contains a static JSON file, which represents the work that has been sent to students in a particular class. Your task is to build a basic front end that clearly displays this information in a way which would be easy for a teacher to take in.
+This repository contains static JSON files.
+- `quest_pathways.json` - Represents the work that has been sent to students in a particular class.
+- `users.json` - Students information
+
+Your task is to
+- Build a basic front end that clearly displays work in a way which would be easy for a teacher to take in
+- Build a basic back end server that serves information from the json files.
 
 ## Requirements
 
