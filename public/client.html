@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" ng-app="testingApp">
+    <head>
+       <!-- Required meta tags -->
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+       <!-- angularJS -->
+       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+       
+       <!-- testing app.js -->
+       <script src="./app.js"></script>
+
+       <!-- Bootstrap CSS -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+       <title>Welcome to mini Portal of myEdOnline</title>
+    </head>
+
+    <body>
+       <div class="container" ng-controller="studentController as stud">
+            <!-- initlizing, fetch both users.json and quest_pathways.json from api server -->
+            <div class="progress" ng-if="loading">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                      loading...
+                    </div>
+            </div>
+
+            <!-- if api responses contain any errors, handle here -->
+            <div class="alert alert-secondary" role="alert" ng-if="loadingError">
+                    {{loadingError}}
+            </div>
+            <!-- show all students and quests here -->
+            <div class="table-responsive" ng-if="!loadingError">
+                <table class="table table-striped">
+                    <caption>
+                        Submitted: <span class="badge badge-pill badge-success">&nbsp;</span> &nbsp; Not Submitted: <span class="badge badge-pill badge-secondary">&nbsp;</span><br />
+                        Completion: <span class="badge badge-pill badge-warning">&nbsp;</span><br />
+                        Mark: <span class="badge badge-pill badge-primary">&nbsp;</span>   
+                    </caption>
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Full name</th>
+                        <th scope="col" ng-repeat="title in quests | orderBy: 'id'"><b>Q{{title.id}}:</b> {{title.name}}
+                            <span class="badge badge-info" ng-if="title.is_active === false">Inactive</span>
+                        </th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr ng-repeat="quest in questPathways">
+                        <td>{{quest.user_id}}</td>
+                        <td ng-repeat="p in users|filter: {id: quest.user_id }">{{p.fullname}}</td>
+                        <td scope="col" ng-repeat="title in quests | orderBy: 'id'">
+                            <span ng-repeat="individualQ in quest.quest_paths|filter:{ quest: {id: title.id}}">
+                                
+                                    <span ng-class="{'badge badge-pill badge-success':individualQ.mark.submitted,'badge badge-pill badge-secondary':!individualQ.mark.submitted}">{{individualQ.mark.submitted ? 'Submitted': 'Not Submitted'}}</span>
+                                    <span class="badge badge-pill badge-warning">{{individualQ.mark.completion + '%'}}</span>
+                                    <span class="badge badge-pill badge-primary" ng-if="individualQ.mark.mark">{{individualQ.mark.mark + '%'}}</span>                                
+                            </span>
+                        </td>
+                        
+                        
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+       </div>
+    </body>
+</html>
