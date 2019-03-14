@@ -1,0 +1,4 @@
+Please open the folder  myedonlineapi
+copy the folder of MyEdOnline to the www directory of apache
+and then run apache with localhost
+the front end is with react so start the react server with localhost:3000
