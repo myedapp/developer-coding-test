@@ -6,6 +6,9 @@
 
 ## Development server
 
+Rename .env.example to .env or create your own .env
+Copy ./testData to ./storage/app
+Run `php artisan config:cache` to clean cached files
 Run `php artisan serve` for server end. Navigate to `http://localhost:8000/`.
 Run `ng serve` for front end. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 

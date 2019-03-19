@@ -15,7 +15,7 @@ class UsersController extends Controller
     public function index()
     {
         //read all students from json and transfer to front
-        $userArray = [];    
+        $usersArray = [];    
         if(storage::disk("local")->exists("/testData/users.json"))
         {
             $usersArray = json_decode(storage::disk("local")->get("/testData/users.json"), true);
