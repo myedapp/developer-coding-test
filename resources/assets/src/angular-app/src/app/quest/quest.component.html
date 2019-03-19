@@ -1,0 +1,42 @@
+<section>
+	<div class="container">		
+		<div class="row">
+    		<div class="col-12">
+    			<h2>{{userName}}'s Quests</h2>
+    			<div class="row row-state">
+    				<div class="col">
+    					<button type="button" class="btn btn-not-active" disabled>Quest Not Active</button>
+    				</div>
+    				<div class="col"> 
+    					<button type="button" class="btn btn-not-submit" disabled>Quest Not Submitted</button>
+    				</div>
+    			</div>    			
+    			<div class="table-responsive">
+					<table class="table table-bordered table-small">
+						<caption class="text-center" [routerLink]="['']"> Back To Users Page
+					    </caption>
+					  	<thead>
+					    	<tr>
+					      		<th scope="col">Name</th>
+					      		<th scope="col">Submitted</th>					      		
+					      		<th scope="col">Completion</th>
+					      		<th scope="col">Mark</th>		      
+					    	</tr>
+					  	</thead>
+					  	<tbody>
+					    	<tr *ngFor="let userQuest of userQuests" [ngClass]="{
+					    	'not_active': userQuest.quest.is_active == false,
+					    	'not_submit': userQuest.quest.is_active == undefined && !userQuest.mark.submitted,
+					    	'not_mark': userQuest.quest.is_active == undefined && userQuest.mark.submitted && userQuest.mark.mark==null}">
+					      		<th scope="row">{{userQuest.quest.name}}</th>
+					      		<td>{{userQuest.mark.submitted ? "YES" : "NO"}}</td>						      		
+					      		<td>{{"%" + userQuest.mark.completion}}</td>		 
+					      		<td>{{userQuest.mark.mark == null ? "No Mark" : "%" + userQuest.mark.mark}}</td>	 		      
+					    	</tr>		    
+					  	</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

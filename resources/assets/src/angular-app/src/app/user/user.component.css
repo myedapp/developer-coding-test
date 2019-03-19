@@ -1,0 +1,10 @@
+section {
+	padding: 10rem 2rem;
+}
+h2 {
+	text-align: center;
+    padding-bottom: 1rem;
+}
+tbody tr{
+	cursor: pointer;
+}

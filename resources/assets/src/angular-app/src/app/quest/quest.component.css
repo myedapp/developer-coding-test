@@ -1,0 +1,30 @@
+section {
+	padding: 10rem 2rem;
+}
+h2 {
+	text-align: center;
+    padding-bottom: 1rem;
+}
+caption{
+	cursor: pointer;
+}
+.not_active{
+	background-color: #bdbdbd;
+}
+.not_mark{
+	background-color: #eb5645;
+	color: white;
+}
+.not_submit{
+	background-color: #f0f38b;
+}
+.row-state{
+	text-align: center;
+	padding: 15px 0;
+}
+.btn-not-active{
+	background-color: #bdbdbd;
+}
+.btn-not-submit{
+	background-color: #f0f38b;
+}
