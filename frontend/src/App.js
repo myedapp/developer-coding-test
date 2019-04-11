@@ -22,6 +22,7 @@ const App = () => {
     setUserId(id)
   }
 
+  const user = userId ? users.find(u => u.id === userId) : null
   return (
     <>
       <aside className="user-aside">
@@ -29,7 +30,7 @@ const App = () => {
         <UserList selectedId={userId} users={users} handleClick={selectUser} />
       </aside>
       <main className="main-content">
-        <UserInfo id={userId} />
+        <UserInfo user={user} />
       </main>
     </>
   )
