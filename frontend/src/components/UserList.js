@@ -4,7 +4,7 @@ const UserList = ({ users }) => {
   return (
     <ul className="user-list">
       {users.map(({ id, fullname }) => (
-        <li key="user.id">
+        <li key={id}>
           {fullname}
           <button className="button-info">i</button>
         </li>
