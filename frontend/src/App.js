@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react"
 import UserList from "./components/users/UserList"
+import UserInfo from "./components/users/UserInfo"
+
 import "./App.scss"
 const App = () => {
   const [users, setUsers] = useState([])
+  const [userId, setUserId] = useState(null)
 
   useEffect(() => {
     fetch("http://localhost:3000/users")
@@ -15,13 +18,19 @@ const App = () => {
       })
   }, [])
 
+  const selectUser = id => {
+    setUserId(id)
+  }
+
   return (
     <>
-      <aside class="user-aside">
+      <aside className="user-aside">
         <h2>Students</h2>
-        <UserList users={users} />
+        <UserList selectedId={userId} users={users} handleClick={selectUser} />
       </aside>
-      <main class="main-content">text</main>
+      <main className="main-content">
+        <UserInfo id={userId} />
+      </main>
     </>
   )
 }
