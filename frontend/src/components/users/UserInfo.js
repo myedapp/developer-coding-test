@@ -29,8 +29,8 @@ const UserInfo = ({ id }) => {
 
   if (!quests) {
     return (
-      <div>
-        <h2>Select a user</h2>
+      <div class="center">
+        <h3>Select a user</h3>
       </div>
     )
   }
