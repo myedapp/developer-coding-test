@@ -27,7 +27,7 @@
 
 .main-content {
   height: 100vh;
-  background: lightblue;
+  background: #f0f2f5;
 }
 
 .center {
@@ -40,10 +40,12 @@
   h3 {
     font-family: "Nunito", sans-serif;
     text-align: center;
-    color: white;
+    color: var(--gray);
   }
 }
 
 .loader {
-  height: 100%;
+  background: var(--gray);
+  min-height: 12em;
+  padding: 1.5em;
 }
