@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import Spinner from "react-spinner"
-import QuestCard from "../quests/QuestCard"
+import QuestPathwayRow from "../quest-pathways/QuestPathwayRow"
 import "./UserInfo.scss"
 
 const UserInfo = ({ user }) => {
-  const [quests, setQuests] = useState(null)
+  const [questPathways, setQuestsPathways] = useState(null)
   const [loading, setLoading] = useState(true)
   const [defer, setDefer] = useState(null)
   const [fullName, setFullName] = useState(null)
@@ -13,7 +13,7 @@ const UserInfo = ({ user }) => {
     setFullName(null)
     if (user) {
       setLoading(true)
-      setQuests([])
+      setQuestsPathways([])
       clearTimeout(defer)
       fetch(`http://localhost:3000/users/${user.id}/quest-pathways`)
         .then(res => res.json())
@@ -22,7 +22,7 @@ const UserInfo = ({ user }) => {
             setTimeout(() => {
               setLoading(false)
               setFullName(user.fullname)
-              setQuests(data[0].quest_paths)
+              setQuestsPathways(data[0].quest_paths)
             }, 1000)
           )
         })
@@ -30,10 +30,10 @@ const UserInfo = ({ user }) => {
     }
   }, [user])
 
-  if (!quests) {
+  if (!questPathways) {
     return (
       <div className="center">
-        <h3>Select a user</h3>
+        <h3>Select a Student</h3>
       </div>
     )
   }
@@ -46,16 +46,29 @@ const UserInfo = ({ user }) => {
     )
   }
   return (
-    <ul className="user-info">
+    <article className="user-info">
       <h1>{fullName}</h1>
-      {quests.map(quest => {
-        return (
-          <li key={quest.order}>
-            <QuestCard quest={quest} />
-          </li>
-        )
-      })}
-    </ul>
+      <table class="quest-pathway-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Submitted</th>
+            <th>Completion</th>
+            <th>Mark</th>
+          </tr>
+        </thead>
+        <tbody>
+          {questPathways.map(({ order, quest, mark }) => (
+            <QuestPathwayRow
+              key={order}
+              quest={quest}
+              order={order}
+              mark={mark}
+            />
+          ))}
+        </tbody>
+      </table>
+    </article>
   )
 }
 
