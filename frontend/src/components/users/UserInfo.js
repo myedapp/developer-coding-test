@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react"
-import Spinner from "react-spinner"
-import QuestPathwayRow from "../quest-pathways/QuestPathwayRow"
+import {MoonLoader} from "react-spinners"
 import "./UserInfo.scss"
+import QuestPathwayTable from "../quest-pathways/QuestPathwayTable"
 
 const UserInfo = ({ user }) => {
   const [questPathways, setQuestsPathways] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const [defer, setDefer] = useState(null)
   const [fullName, setFullName] = useState(null)
 
   useEffect(() => {
     setFullName(null)
     if (user) {
-      setLoading(true)
+      setIsLoading(true)
       setQuestsPathways([])
       clearTimeout(defer)
       fetch(`http://localhost:3000/users/${user.id}/quest-pathways`)
@@ -20,9 +20,9 @@ const UserInfo = ({ user }) => {
         .then(data => {
           setDefer(
             setTimeout(() => {
-              setLoading(false)
-              setFullName(user.fullname)
               setQuestsPathways(data[0].quest_paths)
+              setIsLoading(false)
+              setFullName(user.fullname)
             }, 1000)
           )
         })
@@ -38,36 +38,20 @@ const UserInfo = ({ user }) => {
     )
   }
 
-  if (loading) {
+  if (isLoading) {
     return (
-      <div className="loader">
-        <Spinner />
+      <div className="center">
+        <MoonLoader color='dimgray' size={40} />
       </div>
     )
   }
   return (
     <article className="user-info">
-      <h1>{fullName}</h1>
-      <table class="quest-pathway-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Submitted</th>
-            <th>Completion</th>
-            <th>Mark</th>
-          </tr>
-        </thead>
-        <tbody>
-          {questPathways.map(({ order, quest, mark }) => (
-            <QuestPathwayRow
-              key={order}
-              quest={quest}
-              order={order}
-              mark={mark}
-            />
-          ))}
-        </tbody>
-      </table>
+      <div className="user-info-title">
+      <h1>Quest Pathways</h1>
+      <h2><span>Student:</span> {fullName}</h2>
+      </div>
+      <QuestPathwayTable questPathways={questPathways} />
     </article>
   )
 }
