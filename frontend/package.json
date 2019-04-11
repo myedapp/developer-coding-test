@@ -18,9 +18,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "material-icons-react": "^1.0.4",
+    "rc-progress": "^2.3.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-spinner": "^0.2.7"
+    "react-spinners": "^0.5.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.4.3",
