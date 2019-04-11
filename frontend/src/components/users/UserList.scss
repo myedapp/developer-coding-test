@@ -30,8 +30,13 @@
     background: none;
   }
 
-  li button:hover {
+  .user-info-button:hover {
     background: var(--dark-gray);
     color: white;
+  }
+
+  .user-info-button.active {
+    background: var(--yellow);
+    color: var(--dark-gray);
   }
 }
