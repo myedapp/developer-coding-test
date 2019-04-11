@@ -6,7 +6,10 @@
   "jest": {
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.js"
-    ]
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
   },
   "scripts": {
     "dev": "parcel index.html",
@@ -32,10 +35,12 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "http-server": "^0.11.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.7.1",
     "jest-fetch-mock": "^2.1.2",
     "parcel-bundler": "^1.12.3",
     "react-test-renderer": "^16.8.6",
+    "react-testing-library": "^6.1.2",
     "sass": "^1.18.0"
   }
 }
