@@ -13,18 +13,42 @@
       href="https://fonts.googleapis.com/css?family=Nunito+Sans"
       rel="stylesheet"
     />
-
+    <script defer src="./index.js"></script>
     <style>
       body {
         background: #f0f2f5;
       }
+
       #root {
         display: grid;
-        grid-template-columns: minmax(10em, 12em) auto;
+        grid-template-columns: 15em auto;
+      }
+
+      @media only screen and (min-width: 375px) and (max-width: 667px) {
+        #root {
+          display: block;
+        }
+
+        .user-aside {
+          height: auto !important;
+        }
+
+        .user-list {
+          min-height: auto !important;
+          width: auto !important;
+        }
+
+        .main-area {
+          padding: 0;
+          height: auto;
+          box-sizing: border-box;
+        }
+
+        .user-info {
+          min-width: 100% !important;
+        }
       }
     </style>
-
-    <script defer src="./index.js"></script>
   </head>
   <body>
     <div id="root"></div>

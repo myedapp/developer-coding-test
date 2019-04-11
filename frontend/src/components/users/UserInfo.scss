@@ -4,10 +4,11 @@
   align-content: center;
   padding: 1em;
   background: white;
-  margin: 1em;
   list-style: none;
+  width: auto;
   min-height: 70vh;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
   .user-info-title {
     display: flex;
@@ -18,7 +19,7 @@
       color: #404040;
       font-size: 2em;
     }
-  
+
     h2 {
       color: #007bff;
       font-size: 1.2em;
