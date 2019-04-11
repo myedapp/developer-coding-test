@@ -2,7 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { shallow } from "enzyme"
 import UserList from "./UserList"
-import users from "../../users.json"
+import users from "./users.json"
 
 describe("Component: UserList", () => {
   it("renders without crashing", () => {
@@ -11,7 +11,7 @@ describe("Component: UserList", () => {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it("renders user", () => {
+  it("renders users", () => {
     const wrapper = shallow(<UserList users={users} />)
     expect(wrapper.find("li").length).toBe(users.length)
   })
