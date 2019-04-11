@@ -1,0 +1,33 @@
+table.quest-pathway-table {
+  text-align: left;
+  width: 100%;
+  border: none;
+  border-spacing:0; /* Removes the cell spacing via CSS */
+  border-collapse: collapse; 
+
+  thead tr th {
+    font-weight: bolder;
+    font-size: 0.8em;
+    margin-bottom: 1em;
+    transition: background 200ms ease-in;
+  }
+  
+  tbody tr:nth-child(odd) {
+    background: #f0f0f033;
+  }
+
+  tbody tr:hover {
+    background: #f0f0f0;
+    .progress-completed-text {
+      color: var(--gray);
+    }
+  }
+  
+  tbody tr td {
+    padding: .3em;
+    font-size: 0.7em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+}
+

@@ -1,4 +1,17 @@
-.quest-pathway-table {
-  width: 100%;
-  font-size: 0.7em;
+
+
+
+.pad-to-right {
+  padding-right: 2em;
+}
+
+.progress-completed-text {
+  font-size: .8em;
+  color: #ccc;
+  float: right;
+  transition: transform 200ms ease-in;
+
+  &:hover {
+    transform: scale(1.3);
+  }
 }
