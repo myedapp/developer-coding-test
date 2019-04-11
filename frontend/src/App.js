@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
-
+import UserList from "./components/users/UserList"
+import "./App.scss"
 const App = () => {
   const [users, setUsers] = useState([])
 
@@ -14,7 +15,15 @@ const App = () => {
       })
   }, [])
 
-  return <h1>{users.length}</h1>
+  return (
+    <>
+      <aside class="user-aside">
+        <h2>Students</h2>
+        <UserList users={users} />
+      </aside>
+      <main class="main-content">text</main>
+    </>
+  )
 }
 
 export default App

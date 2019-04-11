@@ -9,7 +9,8 @@
     ]
   },
   "scripts": {
-    "dev": "parcel watch index.html",
+    "dev": "parcel index.html",
+    "build": "parcel watch index.html",
     "start": "http-server ./dist",
     "test": "jest --watch --config"
   },
@@ -32,6 +33,7 @@
     "jest": "^24.7.1",
     "jest-fetch-mock": "^2.1.2",
     "parcel-bundler": "^1.12.3",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "sass": "^1.18.0"
   }
 }

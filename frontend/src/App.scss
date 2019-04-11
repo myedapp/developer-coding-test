@@ -1,0 +1,31 @@
+:root {
+  --gray: #343a40;
+  --dark-gray: #384048;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.user-aside {
+  height: 100vh;
+  padding-right: 0.2em;
+  box-sizing: border-box;
+  background: var(--dark-gray);
+}
+
+.user-aside h1,
+h2 {
+  padding: 1em;
+  padding-bottom: 0.2em;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  border-bottom: 1px solid rgb(77, 77, 77);
+}
+
+.main-content {
+  height: 100vh;
+}
