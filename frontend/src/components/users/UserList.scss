@@ -11,6 +11,8 @@
   padding: 1em;
   padding-right: 0;
   box-sizing: content-box;
+  max-height: 70vh;
+  overflow: scroll;
 
   li {
     width: 100%;
