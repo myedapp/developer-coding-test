@@ -35,7 +35,7 @@ npm install && npm start
 ```
 
 ### Front end
-You can use `npm start` however you will need to run a build first `npm build`. I suggest using the dev script
+You can use `npm start` however you will need to run a build first `npm run build`. I suggest using the dev script
 
 ```
 cd frontend
