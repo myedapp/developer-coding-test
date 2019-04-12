@@ -23,7 +23,7 @@ const UserInfo = ({ user }) => {
               setQuestsPathways(data[0].quest_paths)
               setIsLoading(false)
               setFullName(user.fullname)
-            }, 1000)
+            }, 400)
           )
         })
         .catch(console.error)
