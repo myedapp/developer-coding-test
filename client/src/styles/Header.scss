@@ -1,0 +1,15 @@
+@import '_vars';
+
+header {
+  background-color: $header-colour;
+  color: white;
+}
+
+.Header_wrap {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 10px 15px;
+  h1 {
+    font-size: 30px;
+  }
+}
