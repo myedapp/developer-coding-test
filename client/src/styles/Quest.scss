@@ -1,0 +1,65 @@
+@import '_vars';
+
+.Quest_item-wrap {
+  display: grid;
+  grid-template-rows: 30px 30px 30px;
+  grid-template-columns: 100px 1fr;
+  padding: 20px 0;
+  @media #{$medium-up} {
+    grid-template-rows: 30px 30px;
+    grid-template-columns: 1fr 150px;
+  }
+}
+
+.Quest_progress-bar-wrap {
+  display: inline-block;
+  width: 120px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid $progress-bar-outline;
+  margin: 0 5px;
+  @media #{$medium-up} {
+    width: 200px;
+    margin: 0 15px;
+  }
+  .Quest_progress-bar {
+    display: block;
+    background: $pass;
+    height: 10px;
+    &.success {
+      background-color: $success;
+    }
+    &.fail {
+      background-color: $fail;
+    }
+  }
+}
+
+.Quest_quest-name {
+  @media #{$small-only} {
+    grid-column: 1 / span 2;
+  }
+}
+
+.Quest_mark-submitted {
+  @media #{$small-only} {
+    grid-row: 3;
+    grid-column: 1;
+  }
+}
+
+.Quest_mark-mark {
+  @media #{$small-only} {
+    grid-row: 3;
+    grid-column: 2;
+  }
+}
+
+.Quest_mark-completion {
+  @media #{$small-only} {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+  }
+}
