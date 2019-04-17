@@ -1,22 +1,28 @@
 ## Install denpencies
 
-`yarn`
+In the project directory, you can run:
 
-`cd client`
+### `yarn`
 
-`yarn`
+### `cd clent`
+
+### `yarn`
 
 ## Start server
 
-`cd ..` back to the root folder
+To start server, you need go back to the project root folder
 
-run `node server`
+### `cd ..`
+
+### `node server`
 
 ## Start App
 
-`cd client`
+Then you need to start the app
 
-`yarn start`
+### `cd client`
+
+### `yarn start`
 
 ## Stack used in this project
 
