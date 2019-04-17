@@ -1,30 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import List from './components/Student/List';
+import List from './components/List';
+import QuestContext from './components/context/QuestContext';
+import './styles/App.scss';
 
-class App extends Component {
-  state = {
-    students: [],
-    quests: []
-  };
+const App = () => {
+  const [students, setStudents] = useState([]);
+  const [quests, setQuests] = useState([]);
 
-  componentDidMount() {
+  useEffect(() => {
     const promise = [];
     promise.push(fetch('api/users').then(res => res.json()));
     promise.push(fetch('api/quests').then(res => res.json()));
-    Promise.all(promise).then(res =>
-      this.setState({ students: [...res[0].data], quests: [...res[1].data] })
-    );
-  }
+    Promise.all(promise).then(res => {
+      setStudents([...res[0].data]);
+      setQuests([...res[1].data]);
+    });
+  }, []);
 
-  render() {
-    return (
+  return (
+    <QuestContext.Provider value={[...quests]}>
       <div className='App'>
         <Header />
-        <List items={this.state.students} tagName='Student' />
+        <div className='List_outline'>
+          <List items={students} tagName='Student' />
+        </div>
       </div>
-    );
-  }
-}
+    </QuestContext.Provider>
+  );
+};
 
 export default App;
