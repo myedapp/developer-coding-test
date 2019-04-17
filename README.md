@@ -1,22 +1,22 @@
 ## Install denpencies
 
-### `yarn`
+`yarn`
 
-### `cd client`
+`cd client`
 
-### `yarn`
+`yarn`
 
 ## Start server
 
-### `cd ..` back to the root folder
+`cd ..` back to the root folder
 
-### run `node server`
+run `node server`
 
 ## Start App
 
-## `cd client`
+`cd client`
 
-## `yarn start`
+`yarn start`
 
 ## Stack used in this project
 
