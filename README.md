@@ -10,7 +10,7 @@ In the project directory, you can run:
 
 ## Start server
 
-To start server, you need go back to the project root folder
+To start server, you need go back to the project root folder.
 
 ### `cd ..`
 
