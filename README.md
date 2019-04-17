@@ -2,27 +2,25 @@
 
 In the project directory, you can run:
 
-### `yarn`
-
-### `cd clent`
-
-### `yarn`
+run: `yarn`
+go to client: `cd client`
+run: `yarn`
 
 ## Start server
 
 To start server, you need go back to the project root folder.
 
-### `cd ..`
+Go back to project root folder: `cd ..`
 
-### `node server`
+Start server: `node server`
 
 ## Start App
 
 Then you need to start the app
 
-### `cd client`
+Go to client folder: `cd client`
 
-### `yarn start`
+Start App: `yarn start`
 
 ## Stack used in this project
 
