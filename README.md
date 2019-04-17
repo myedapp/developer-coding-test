@@ -1,10 +1,8 @@
 ## Install denpencies
 
-### `yarn`
-
-### `cd client`
-
-### `yarn`
+`yarn`
+`cd client`
+`yarn`
 
 ## Start server
 
