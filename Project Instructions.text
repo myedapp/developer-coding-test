@@ -1,0 +1,17 @@
+Installation Prerequisites:
+        Golang
+        Node
+        NPM
+
+Free Port required: 8080
+
+FrontEnd is built using React hence npm must have installed on the executing machine.
+Navigate to client directory and run command:
+                                              npm install
+After successfully installation of all packages, run command:
+                                                             npm run-script build
+Golang is used as server side language hence golang must be installed on the executing machine
+
+In root directory run commend:
+                               go run server.go
+This will start server on port: 8080

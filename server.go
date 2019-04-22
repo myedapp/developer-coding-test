@@ -53,11 +53,11 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(users)
 }
 
-func getReports() {
-	// func getReports(w http.ResponseWriter, r *http.Request) {
-	// w.Header().Set("Access-Control-Allow-Origin", "*")
-	// w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-	// w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Accept-Encoding,Content-Encoding, X-CSRF-Token, Authorization")
+// func getReports() {
+func getReports(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Accept-Encoding,Content-Encoding, X-CSRF-Token, Authorization")
 
 	var userQuests []UserQuest
 	byteValue, err := ioutil.ReadFile("./quest_pathways.json")
@@ -67,14 +67,12 @@ func getReports() {
 
 	json.Unmarshal(byteValue, &userQuests)
 
-	fmt.Println("User Quests: ", userQuests)
+	// fmt.Println("User Quests: ", userQuests)
 
-	// json.NewEncoder(w).Encode(userQuests)
+	json.NewEncoder(w).Encode(userQuests)
 }
 
 func main() {
-
-	getReports()
 
 	// err = decoder.Decode(&user)
 	// if err != nil {
@@ -85,6 +83,8 @@ func main() {
 	// 	fmt.Println("User is: ", users[k].Fullname)
 	// }
 
-	// http.Handle("/", http.FileServer(http.Dir("../client/build/")))
-	// http.ListenAndServe(":443", nil)
+	http.HandleFunc("/get-students", getUsers)
+	http.HandleFunc("/get-reports", getReports)
+	http.Handle("/", http.FileServer(http.Dir("./client/build/")))
+	http.ListenAndServe(":8080", nil)
 }

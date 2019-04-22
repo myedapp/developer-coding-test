@@ -1,0 +1,17 @@
+.some-class{
+    font-family: "Arial Narrow";
+    color: darkred;
+    /*margin-left: 20%;*/
+    margin: -15px 0px 10px 20%;
+}
+
+.form-control::placeholder {
+    /* modern browser */
+    color: #888888;
+    opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+}
+@media (max-width: 450px) {
+}

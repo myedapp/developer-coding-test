@@ -1,0 +1,61 @@
+.flight-result-container-main{
+    position:absolute;
+    min-width: 1000px;
+}
+.flight-result-container-left{
+    width: 100%;
+    display: block;
+
+    /*background: transparent;*/
+    /*box-shadow: 2px 0px 5px rgba(0,0,0,0.5);*/
+    height:100%;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-right: 10px;
+    position:absolute;
+    flex-wrap: wrap;
+    background-color: transparent;
+}
+.flight-result-container-center{
+    display: block;
+    position: absolute;
+    /*flex-wrap: wrap;*/
+    /*visibility: visible;*/
+    background-color: transparent;
+    font-family: "Gibson Regular",Tahoma,Helvetica,sans-serif;
+    min-width: 100%;
+    max-width: 100%;
+    margin-left: 35%;
+    margin-top: 10%;
+    margin-right: 10%;
+}
+.flight-result-container-center h5{
+    margin-left: 40%;
+}
+
+@media(max-width: 1800px) {
+
+}
+@media(max-width: 450px){
+    .flight-result-container-main{
+        position:absolute;
+        width: 400px;
+        min-width: 400px;
+    }
+    .flight-result-container-left{
+        visibility: hidden;
+    }
+    .flight-result-container-center{
+        display: block;
+        position: absolute;
+        /*flex-wrap: wrap;*/
+        /*visibility: visible;*/
+        background-color: transparent;
+        font-family: "Gibson Regular",Tahoma,Helvetica,sans-serif;
+        min-width: 100%;
+        max-width: 100%;
+        margin-left: 50px;
+        margin-top: 10%;
+    }
+
+}
