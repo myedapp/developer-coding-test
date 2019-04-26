@@ -35,7 +35,7 @@ Beyond meeting the requirements above, it’s up to you where you want to focus.
 
 ## Submitting your solution
 
-Fork this repository, create a new branch in Git, and commit your changes on that branch. When you have finished, push your changes, and open a Pull Request against this repository.
+Fork this repository, create a new branch in Git, and commit your changes on that branch. When you have finished, push your changes, and open a Pull Request against this repository. Follow the guide: https://help.github.com/en/articles/creating-a-pull-request-from-a-fork
 
 
 We’re looking forward to your innovative solutions!
