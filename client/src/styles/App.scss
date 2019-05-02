@@ -1,0 +1,12 @@
+@import '_vars';
+
+.List_outline {
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 3px 4px $light-grey;
+  margin: 20px 15px;
+  @media #{$large-up} {
+    margin: 20px auto;
+    max-width: $max-width;
+  }
+}

@@ -1,0 +1,47 @@
+//Google Fonts Open Sans Condensed
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700');
+
+$max-width: 1200px;
+
+//break points
+// Reference: Foundation 6.5.3 Media Query https://foundation.zurb.com/sites/docs/media-queries.html
+$small-only: screen and
+  (
+    max-width: 39.9375em
+  );
+$medium-up: screen and
+  (
+    min-width: 40em
+  );
+$medium-only: screen and
+  (
+    min-width: 40em
+  )
+  and
+  (
+    max-width: 63.9375em
+  );
+$large-up: screen and
+  (
+    min-width: 64em
+  );
+$large-only: screen and
+  (
+    min-width: 64em
+  )
+  and
+  (
+    max-width: 74.9375em
+  );
+
+// Colours
+// $header-colour: #0074d9;
+$header-colour: #3498db;
+$light-grey: #e8e8e8;
+$name-colour: #777;
+$dark: #444;
+$pass: #f8c471;
+$success: #58d68d;
+$fail: #ec7063;
+$progress-bar-outline: #d4d4d4;
+$quest-panel-bg: #f2f2f2;

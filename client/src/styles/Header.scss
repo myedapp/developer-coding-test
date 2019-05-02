@@ -1,0 +1,20 @@
+@import '_vars';
+
+header {
+  background-color: $header-colour;
+  color: white;
+}
+
+.Header_wrap {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 15px;
+  h1 {
+    font-size: 6vw;
+    text-align: center;
+    @media #{$medium-up} {
+      font-size: 30px;
+      text-align: left;
+    }
+  }
+}
