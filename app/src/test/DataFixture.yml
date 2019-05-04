@@ -1,0 +1,24 @@
+## YAML Template.
+User:
+    User1:
+        FullName: Name 1
+    User2:
+        FullName: Name 2
+Quest:
+    Quest1:
+        Name: Quest 1
+    Quest2:
+        Name: Quest 2
+Mark:
+    Mark1:
+        Submitted: true
+        Completion: 100
+        Mark: 100
+        User: =>User.User1
+        Quest: =>Quest.Quest1
+    Mark2:
+        Submitted: true
+        Completion: 75
+        Mark: 0
+        User: =>User.User1
+        Quest: =>Quest.Quest2        
